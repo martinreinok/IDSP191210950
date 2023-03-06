@@ -1,0 +1,78 @@
+For each resource, point out from which part of the Arx code it originates
+
+
+log_nov 
+
+We would expect that "nov" would have more hardware because it contains more ARX code however on closer inspection it seems that the code only performs a single addition and single multiplication.
+
+implements 1 mult 1 add
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| mult_238           | DW_mult_tc       | apparch (area)     |                |
+|                    |                  | mult_arch: benc_radix4              |
+| add_239            | DW01_add         | rpl                |                |
+===============================================================================
+
+The ARX code follows a for loop style sequential method consisting of 11 cycles, where each cycle calculates the arithmetic calculation consisting of 1 multiplication and 1 addition.
+# arithmetic
+m_out = m_in_l * m_in_r
+a_out = a_in_l + a_in_r
+
+
+log_df2
+
+The code seems to be shorter comapred to "nov" therefore the hardware could also be smaller however considering that df2 is overlapped it would make sense that it has more hardware.
+
+Implements 3 adders 2 multipliers
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| add_138            | DW01_add         | rpl                |                |
+| mult_132           | DW_mult_tc       | apparch (area)     |                |
+| add_135            | DW01_add         | rpl                |                |
+| mult_137           | DW_mult_tc       | apparch (area)     |                |
+| add_1_root_add_136 | DW01_add         | rpl                |                |
+===============================================================================
+
+# statements
+m2 = a1 * z1
+m3 = b1 * z1
+m4 = a2 * z2
+m5 = b2 * z2
+
+p3 = m2 + m4
+p1 = p3 + data_in
+m1 = b0 * p1
+p4 = m3 + m5
+p2 = m1 + p4
+
+
+Do we have to manually create a samle schedule?
+# statements
+m2 = a1 * z1
+m3 = b1 * z1
+
+m4 = a2 * z2
+m5 = b2 * z2
+
+p3 = m2 + m4
+p4 = m3 + m5
+
+p1 = p3 + data_in
+
+m1 = b0 * p1
+m2 = a1 * z1
+
+p2 = m1 + p4
+
+
+
+
+How does the Area work, why does DF2 Area seem smaller than NOV area?
