@@ -53,10 +53,10 @@ register
 	o1: T_data = 0
 
 	# registers
-	r1: T_data = 0
+	r1: T_mult = 0
 	r2: T_mult = 0
-	d1: T_data = 0
-	d2: T_data = 0
+	d1: T_mult = 0
+	d2: T_mult = 0
 
 	# the counter that counts cycles on behalf of control
 	state: T_state = T_state.cycle0
