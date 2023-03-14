@@ -198,7 +198,7 @@ begin
 		when T_state.cycle2
 			state = T_state.cycle3
 			# p3
-			r3 = a_out
+			r2 = a_out
 
 		when T_state.cycle3
 			state = T_state.cycle4
