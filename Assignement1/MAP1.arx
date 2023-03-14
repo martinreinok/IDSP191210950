@@ -48,15 +48,15 @@ type
 
 register
 	# the registers in the design
+	# Input & output
 	i1: T_data = 0
+	o1: T_data = 0
+
+	# registers
 	r1: T_data = 0
 	r2: T_mult = 0
-	r3: T_mult = 0
-	r4: T_data = 0
-	d0: T_data = 0
 	d1: T_data = 0
 	d2: T_data = 0
-	o1: T_data = 0
 
 	# the counter that counts cycles on behalf of control
 	state: T_state = T_state.cycle0
@@ -130,12 +130,12 @@ begin
 		when T_state.cycle4
 			# m1 cycle 1
 			m2_in_l = b0
-			m2_in_r = r3
+			m2_in_r = d1
 
 		when T_state.cycle5
 			# m1 cycle 2
 			m2_in_l = b0
-			m2_in_r = r3
+			m2_in_r = d1
 
 		when T_state.cycle6
 			# Nothing here
@@ -159,7 +159,7 @@ begin
 		when T_state.cycle3
 			# p1
 			a_in_l = i1
-			a_in_r = r3
+			a_in_r = r2
 
 		when T_state.cycle4
 			# p4
@@ -171,8 +171,8 @@ begin
 			
 		when T_state.cycle6
 			# p2
-			a_in_l = r2
-			a_in_r = r1
+			a_in_l = r1
+			a_in_r = r2
 	end
 
 	# arithmetic
@@ -206,27 +206,25 @@ begin
 			r1 = m_out
 			# m5
 			r2 = m2_out
+			# Shift delay
+			d2 = d1
 			# p1
-			r3 = a_out
-
+			d1 = a_out
+			
 		when T_state.cycle4
 			state = T_state.cycle5
 			# p4
-			r1 = a_out
+			r2 = a_out
 
 		when T_state.cycle5
 			state = T_state.cycle6
 			# m1
-			# I think we need to store M1 else how to calculate?
-			r2 = m2_out
+			r1 = m2_out
 
 		when T_state.cycle6
 			# back to initial state
 			state = T_state.cycle0
 			o1		= a_out 
-			# shift contents of delay elements
-			d1		= d0
-			d2		= d1
 	end
 
 	# wire output
