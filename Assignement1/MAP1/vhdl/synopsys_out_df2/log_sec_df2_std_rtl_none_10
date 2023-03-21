@@ -1,0 +1,716 @@
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version R-2020.09-SP2 for linux64 - Dec 03, 2020 
+
+                    Copyright (c) 1988 - 2020 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+dc_shell> dc_shell> arx_numeric.vhd sec_df2.vhd
+dc_shell> sec_df2_std
+dc_shell> clock
+dc_shell> none
+dc_shell> 10
+dc_shell> sec_df2_std_rtl_none_10
+dc_shell> n
+dc_shell> n
+dc_shell> rtl_none_10
+dc_shell> dc_shell> dc_shell> dc_shell> dc_shell> Running PRESTO HDLC
+Compiling Package Declaration ARX_NUMERIC
+Compiling Package Body ARX_NUMERIC
+Presto compilation completed successfully.
+Loading db file '/remote/labware/technology/UMC/UMCL18U250D2_2.4/design_compiler/umcl18u250t2_typ.db'
+Loading db file '/remote/labware/packages/synopsys/syn/R-2020.09-SP2/libraries/syn/dw_foundation.sldb'
+Running PRESTO HDLC
+Compiling Entity Declaration SEC_DF2_STD
+Compiling Architecture RTL of SEC_DF2_STD
+Compiling Entity Declaration SEC_DF2
+Compiling Architecture RTL of SEC_DF2
+Presto compilation completed successfully.
+dc_shell> dc_shell> dc_shell> dc_shell> Loading db file '/remote/labware/packages/synopsys/syn/R-2020.09-SP2/libraries/syn/gtech.db'
+Loading db file '/remote/labware/packages/synopsys/syn/R-2020.09-SP2/libraries/syn/standard.sldb'
+Warning: The library named umcl18u250t2_typ specifies a very small trip-point value (0). (TIM-163)
+Warning: The library named umcl18u250t2_typ specifies a very small trip-point value (0). (TIM-163)
+  Loading link library 'umcl18u250t2_typ'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+Presto compilation completed successfully. (sec_df2_std)
+Elaborated 1 design.
+Current design is now 'sec_df2_std'.
+Information: Building the design 'sec_df2'. (HDL-193)
+
+Inferred memory devices in process
+	in routine sec_df2 line 72 in file
+		'./sec_df2.vhd'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+| arx_p2_out_reg_reg  | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   arx_z1_reg_reg    | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   arx_z2_reg_reg    | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (sec_df2)
+1
+dc_shell> dc_shell> dc_shell> 1
+dc_shell> dc_shell> dc_shell> 1
+dc_shell> dc_shell> dc_shell> 1
+dc_shell> dc_shell> dc_shell> 1
+dc_shell> dc_shell> dc_shell> Current design is 'sec_df2_std'.
+Error: Cannot rename design /home/s2981416/MAPTEST/vhdl/sec_df2_std.db:sec_df2_std over existing design /home/s2981416/MAPTEST/vhdl/sec_df2_std.db:sec_df2_std. (UIMG-43)
+0
+dc_shell> dc_shell> dc_shell> dc_shell> FALSE
+dc_shell> dc_shell> dc_shell> Information: Checking out the license 'DesignWare'. (SEC-104)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | R-2020.09-DWBB_202009.2 |     *     |
+| Licensed DW Building Blocks        | R-2020.09-DWBB_202009.2 |     *     |
+============================================================================
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'sec_df2'
+  Processing 'sec_df2_std'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Implementation Selection
+  ----------------------------------
+  Processing 'sec_df2_DW01_add_0'
+  Processing 'sec_df2_DW01_add_1'
+  Building model 'DW01_NAND2'
+  Processing 'DW01_NAND2'
+  Building model 'DW01_add_width15' (rpl)
+  Processing 'DW01_add_width15'
+  Building model 'DW01_add_width8' (rpl)
+  Processing 'DW01_add_width8'
+  Processing 'sec_df2_DW01_add_2'
+  Mapping 'sec_df2_DW_mult_tc_0'
+  Mapping 'sec_df2_DW_mult_tc_1'
+  Processing 'sec_df2_DW01_add_3'
+  Mapping 'sec_df2_DW_mult_tc_2'
+  Mapping 'sec_df2_DW_mult_tc_3'
+  Processing 'sec_df2_DW01_add_4'
+  Mapping 'sec_df2_DW_mult_tc_4'
+  Processing 'sec_df2_DW01_add_5'
+
+  Beginning Mapping Optimizations  (High effort)
+  -------------------------------
+Information: Added key list 'DesignWare' to design 'sec_df2'. (DDB-72)
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01   11896.0      0.00       0.0       0.0                          
+    0:00:01   11896.0      0.00       0.0       0.0                          
+    0:00:01   11896.0      0.00       0.0       0.0                          
+    0:00:01   11896.0      0.00       0.0       0.0                          
+    0:00:01   11896.0      0.00       0.0       0.0                          
+    0:00:02   10944.5      0.00       0.0       0.0                          
+    0:00:02   10944.5      0.00       0.0       0.0                          
+    0:00:02   10944.5      0.00       0.0       0.0                          
+    0:00:02   10944.5      0.00       0.0       0.0                          
+    0:00:02   10944.5      0.00       0.0       0.0                          
+    0:00:02   10944.5      0.00       0.0       0.0                          
+    0:00:02   10944.5      0.00       0.0       0.0                          
+    0:00:02   10944.5      0.00       0.0       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:02   10944.5      0.00       0.0       0.0                          
+    0:00:02   10944.5      0.00       0.0       0.0                          
+    0:00:02   10944.5      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:02   10944.5      0.00       0.0       0.0                          
+    0:00:02   10944.5      0.00       0.0       0.0                          
+    0:00:02   10879.5      0.00       0.0       0.0                          
+    0:00:02   10863.2      0.00       0.0       0.0                          
+    0:00:02   10863.2      0.00       0.0       0.0                          
+    0:00:02   10863.2      0.00       0.0       0.0                          
+    0:00:02   10863.2      0.00       0.0       0.0                          
+    0:00:02   10863.2      0.00       0.0       0.0                          
+    0:00:02   10863.2      0.00       0.0       0.0                          
+    0:00:02   10863.2      0.00       0.0       0.0                          
+    0:00:02   10863.2      0.00       0.0       0.0                          
+    0:00:02   10863.2      0.00       0.0       0.0                          
+    0:00:02   10863.2      0.00       0.0       0.0                          
+    0:00:02   10822.6      0.00       0.0       0.0                          
+Loading db file '/remote/labware/technology/UMC/UMCL18U250D2_2.4/design_compiler/umcl18u250t2_typ.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+dc_shell> dc_shell> dc_shell>  
+****************************************
+check_design summary:
+Version:     R-2020.09-SP2
+Date:        Tue Mar 21 15:57:15 2023
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     44
+    Unloaded inputs (LINT-8)                                        1
+    Unconnected ports (LINT-28)                                    41
+    Feedthrough (LINT-29)                                           2
+
+Cells                                                               5
+    Nets connected to multiple pins on same cell (LINT-33)          5
+
+Nets                                                                1
+    Unloaded nets (LINT-2)                                          1
+--------------------------------------------------------------------------------
+
+Warning: In design 'sec_df2_std', net 'sec_df2_inst/add_138/B[0]' driven by pin 'sec_df2_inst/add_138/B[0]' has no loads. (LINT-2)
+Warning: In design 'sec_df2_DW01_add_2', input port 'B[0]' is unloaded. (LINT-8)
+Warning: In design 'sec_df2_DW01_add_1', port 'CO' is not connected to any nets. (LINT-28)
+Warning: In design 'sec_df2_DW01_add_2', port 'A[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'sec_df2_DW01_add_2', port 'CI' is not connected to any nets. (LINT-28)
+Warning: In design 'sec_df2_DW01_add_2', port 'SUM[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'sec_df2_DW01_add_2', port 'SUM[4]' is not connected to any nets. (LINT-28)
+Warning: In design 'sec_df2_DW01_add_2', port 'SUM[3]' is not connected to any nets. (LINT-28)
+Warning: In design 'sec_df2_DW01_add_2', port 'SUM[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'sec_df2_DW01_add_2', port 'SUM[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'sec_df2_DW01_add_2', port 'SUM[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'sec_df2_DW01_add_2', port 'CO' is not connected to any nets. (LINT-28)
+Warning: In design 'sec_df2_DW_mult_tc_0', port 'a[7]' is not connected to any nets. (LINT-28)
+Warning: In design 'sec_df2_DW_mult_tc_0', port 'a[6]' is not connected to any nets. (LINT-28)
+Warning: In design 'sec_df2_DW_mult_tc_0', port 'a[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'sec_df2_DW_mult_tc_0', port 'a[4]' is not connected to any nets. (LINT-28)
+Warning: In design 'sec_df2_DW_mult_tc_0', port 'a[3]' is not connected to any nets. (LINT-28)
+Warning: In design 'sec_df2_DW_mult_tc_0', port 'a[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'sec_df2_DW_mult_tc_0', port 'a[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'sec_df2_DW_mult_tc_0', port 'a[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'sec_df2_DW_mult_tc_0', port 'product[15]' is not connected to any nets. (LINT-28)
+Warning: In design 'sec_df2_DW_mult_tc_0', port 'product[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'sec_df2_DW01_add_3', port 'CI' is not connected to any nets. (LINT-28)
+Warning: In design 'sec_df2_DW01_add_3', port 'SUM[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'sec_df2_DW01_add_3', port 'SUM[4]' is not connected to any nets. (LINT-28)
+Warning: In design 'sec_df2_DW01_add_3', port 'SUM[3]' is not connected to any nets. (LINT-28)
+Warning: In design 'sec_df2_DW01_add_3', port 'SUM[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'sec_df2_DW01_add_3', port 'SUM[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'sec_df2_DW01_add_3', port 'SUM[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'sec_df2_DW01_add_3', port 'CO' is not connected to any nets. (LINT-28)
+Warning: In design 'sec_df2_DW_mult_tc_4', port 'a[6]' is not connected to any nets. (LINT-28)
+Warning: In design 'sec_df2_DW_mult_tc_4', port 'a[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'sec_df2_DW_mult_tc_4', port 'a[4]' is not connected to any nets. (LINT-28)
+Warning: In design 'sec_df2_DW_mult_tc_4', port 'a[3]' is not connected to any nets. (LINT-28)
+Warning: In design 'sec_df2_DW_mult_tc_4', port 'a[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'sec_df2_DW_mult_tc_4', port 'a[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'sec_df2_DW_mult_tc_4', port 'a[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'sec_df2_DW_mult_tc_4', port 'product[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'sec_df2_DW_mult_tc_4', port 'product[4]' is not connected to any nets. (LINT-28)
+Warning: In design 'sec_df2_DW_mult_tc_4', port 'product[3]' is not connected to any nets. (LINT-28)
+Warning: In design 'sec_df2_DW_mult_tc_4', port 'product[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'sec_df2_DW_mult_tc_4', port 'product[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'sec_df2_DW_mult_tc_4', port 'product[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'sec_df2_DW_mult_tc_0', input port 'b[1]' is connected directly to output port 'product[2]'. (LINT-29)
+Warning: In design 'sec_df2_DW_mult_tc_0', input port 'b[0]' is connected directly to output port 'product[1]'. (LINT-29)
+Warning: In design 'sec_df2', the same net is connected to more than one pin on submodule 'mult_137'. (LINT-33)
+   Net 'm3[0]' is connected to pins 'a[6]', 'a[2]'', 'a[1]'.
+Warning: In design 'sec_df2', the same net is connected to more than one pin on submodule 'mult_137'. (LINT-33)
+   Net 'n9' is connected to pins 'a[5]', 'a[4]'', 'a[3]', 'a[0]'.
+Warning: In design 'sec_df2', the same net is connected to more than one pin on submodule 'mult_132'. (LINT-33)
+   Net 'n9' is connected to pins 'a[7]', 'a[4]'', 'a[3]', 'a[1]'.
+Warning: In design 'sec_df2', the same net is connected to more than one pin on submodule 'mult_132'. (LINT-33)
+   Net 'm3[0]' is connected to pins 'a[6]', 'a[5]'', 'a[2]', 'a[0]'.
+Warning: In design 'sec_df2', the same net is connected to more than one pin on submodule 'add_138'. (LINT-33)
+   Net 'm3[0]' is connected to pins 'A[0]', 'CI''.
+1
+dc_shell> dc_shell> dc_shell> dc_shell> dc_shell> dc_shell> dc_shell> dc_shell> dc_shell> NMA-16 VHDL-286 UCN-4
+dc_shell> 1
+dc_shell> Warning: In the design sec_df2_DW_mult_tc_0, net 'b[1]' is connecting multiple ports. (UCN-1)
+Warning: In the design sec_df2_DW_mult_tc_0, net 'b[0]' is connecting multiple ports. (UCN-1)
+1
+dc_shell> dc_shell> 1
+dc_shell> dc_shell> dc_shell> hier_rtl_none_10
+dc_shell> dc_shell> dc_shell> Writing vhdl file '/home/s2981416/MAPTEST/vhdl/synopsys_out/sec_df2_std_rtl_none_10_hier.vhd'.
+Warning: A dummy net 'n_1000' is created to connect open pin 'a(6)'. (VHDL-290)
+Warning: A dummy net 'n_1001' is created to connect open pin 'a(5)'. (VHDL-290)
+Warning: A dummy net 'n_1002' is created to connect open pin 'a(4)'. (VHDL-290)
+Warning: A dummy net 'n_1003' is created to connect open pin 'a(3)'. (VHDL-290)
+Warning: A dummy net 'n_1004' is created to connect open pin 'a(2)'. (VHDL-290)
+Warning: A dummy net 'n_1005' is created to connect open pin 'a(1)'. (VHDL-290)
+Warning: A dummy net 'n_1006' is created to connect open pin 'a(0)'. (VHDL-290)
+Warning: A dummy net 'n_1007' is created to connect open pin 'product(5)'. (VHDL-290)
+Warning: A dummy net 'n_1008' is created to connect open pin 'product(4)'. (VHDL-290)
+Warning: A dummy net 'n_1009' is created to connect open pin 'product(3)'. (VHDL-290)
+Warning: A dummy net 'n_1010' is created to connect open pin 'product(2)'. (VHDL-290)
+Warning: A dummy net 'n_1011' is created to connect open pin 'product(1)'. (VHDL-290)
+Warning: A dummy net 'n_1012' is created to connect open pin 'product(0)'. (VHDL-290)
+Warning: A dummy net 'n_1013' is created to connect open pin 'CI'. (VHDL-290)
+Warning: A dummy net 'n_1014' is created to connect open pin 'SUM(5)'. (VHDL-290)
+Warning: A dummy net 'n_1015' is created to connect open pin 'SUM(4)'. (VHDL-290)
+Warning: A dummy net 'n_1016' is created to connect open pin 'SUM(3)'. (VHDL-290)
+Warning: A dummy net 'n_1017' is created to connect open pin 'SUM(2)'. (VHDL-290)
+Warning: A dummy net 'n_1018' is created to connect open pin 'SUM(1)'. (VHDL-290)
+Warning: A dummy net 'n_1019' is created to connect open pin 'SUM(0)'. (VHDL-290)
+Warning: A dummy net 'n_1020' is created to connect open pin 'CO'. (VHDL-290)
+Warning: A dummy net 'n_1021' is created to connect open pin 'a(7)'. (VHDL-290)
+Warning: A dummy net 'n_1022' is created to connect open pin 'a(6)'. (VHDL-290)
+Warning: A dummy net 'n_1023' is created to connect open pin 'a(5)'. (VHDL-290)
+Warning: A dummy net 'n_1024' is created to connect open pin 'a(4)'. (VHDL-290)
+Warning: A dummy net 'n_1025' is created to connect open pin 'a(3)'. (VHDL-290)
+Warning: A dummy net 'n_1026' is created to connect open pin 'a(2)'. (VHDL-290)
+Warning: A dummy net 'n_1027' is created to connect open pin 'a(1)'. (VHDL-290)
+Warning: A dummy net 'n_1028' is created to connect open pin 'a(0)'. (VHDL-290)
+Warning: A dummy net 'n_1029' is created to connect open pin 'product(15)'. (VHDL-290)
+Warning: A dummy net 'n_1030' is created to connect open pin 'product(0)'. (VHDL-290)
+Warning: A dummy net 'n_1031' is created to connect open pin 'A(0)'. (VHDL-290)
+Warning: A dummy net 'n_1032' is created to connect open pin 'CI'. (VHDL-290)
+Warning: A dummy net 'n_1033' is created to connect open pin 'SUM(5)'. (VHDL-290)
+Warning: A dummy net 'n_1034' is created to connect open pin 'SUM(4)'. (VHDL-290)
+Warning: A dummy net 'n_1035' is created to connect open pin 'SUM(3)'. (VHDL-290)
+Warning: A dummy net 'n_1036' is created to connect open pin 'SUM(2)'. (VHDL-290)
+Warning: A dummy net 'n_1037' is created to connect open pin 'SUM(1)'. (VHDL-290)
+Warning: A dummy net 'n_1038' is created to connect open pin 'SUM(0)'. (VHDL-290)
+Warning: A dummy net 'n_1039' is created to connect open pin 'CO'. (VHDL-290)
+Warning: A dummy net 'n_1040' is created to connect open pin 'CO'. (VHDL-290)
+Warning: A dummy net 'n_1041' is created to connect open pin 'CO'. (VHDL-290)
+Warning: A dummy net 'n_1042' is created to connect open pin 'product(5)'. (VHDL-290)
+Warning: A dummy net 'n_1043' is created to connect open pin 'product(4)'. (VHDL-290)
+Warning: A dummy net 'n_1044' is created to connect open pin 'product(3)'. (VHDL-290)
+Warning: A dummy net 'n_1045' is created to connect open pin 'product(2)'. (VHDL-290)
+Warning: A dummy net 'n_1046' is created to connect open pin 'product(1)'. (VHDL-290)
+Warning: A dummy net 'n_1047' is created to connect open pin 'product(0)'. (VHDL-290)
+Warning: A dummy net 'n_1048' is created to connect open pin 'SUM(5)'. (VHDL-290)
+Warning: A dummy net 'n_1049' is created to connect open pin 'SUM(4)'. (VHDL-290)
+Warning: A dummy net 'n_1050' is created to connect open pin 'SUM(3)'. (VHDL-290)
+Warning: A dummy net 'n_1051' is created to connect open pin 'SUM(2)'. (VHDL-290)
+Warning: A dummy net 'n_1052' is created to connect open pin 'SUM(1)'. (VHDL-290)
+Warning: A dummy net 'n_1053' is created to connect open pin 'SUM(0)'. (VHDL-290)
+Warning: A dummy net 'n_1054' is created to connect open pin 'CO'. (VHDL-290)
+Warning: A dummy net 'n_1055' is created to connect open pin 'product(15)'. (VHDL-290)
+Warning: A dummy net 'n_1056' is created to connect open pin 'product(0)'. (VHDL-290)
+Warning: A dummy net 'n_1057' is created to connect open pin 'SUM(5)'. (VHDL-290)
+Warning: A dummy net 'n_1058' is created to connect open pin 'SUM(4)'. (VHDL-290)
+Warning: A dummy net 'n_1059' is created to connect open pin 'SUM(3)'. (VHDL-290)
+Warning: A dummy net 'n_1060' is created to connect open pin 'SUM(2)'. (VHDL-290)
+Warning: A dummy net 'n_1061' is created to connect open pin 'SUM(1)'. (VHDL-290)
+Warning: A dummy net 'n_1062' is created to connect open pin 'SUM(0)'. (VHDL-290)
+Warning: A dummy net 'n_1063' is created to connect open pin 'CO'. (VHDL-290)
+Warning: A dummy net 'n_1064' is created to connect open pin 'CO'. (VHDL-290)
+1
+dc_shell> dc_shell> dc_shell>  
+****************************************
+Report : hierarchy
+Design : sec_df2_std
+Version: R-2020.09-SP2
+Date   : Tue Mar 21 15:57:15 2023
+****************************************
+
+Attributes:
+    r - licensed design
+
+sec_df2_std
+    sec_df2                                    r
+        ADFULD1                      umcl18u250t2_typ
+        ADHALFDL                     umcl18u250t2_typ
+        AND2D1                       umcl18u250t2_typ
+        DFFRPQ1                      umcl18u250t2_typ
+        EXOR2D1                      umcl18u250t2_typ
+        INVD1                        umcl18u250t2_typ
+        NAN2D1                       umcl18u250t2_typ
+        TIEHI                        umcl18u250t2_typ
+        TIELO                        umcl18u250t2_typ
+        sec_df2_DW01_add_1
+            ADFULD1                  umcl18u250t2_typ
+            EXOR3D1                  umcl18u250t2_typ
+        sec_df2_DW01_add_2
+            ADFULD1                  umcl18u250t2_typ
+            AND2D1                   umcl18u250t2_typ
+            EXOR3D1                  umcl18u250t2_typ
+            OAI21D1                  umcl18u250t2_typ
+            OAI21M20D1               umcl18u250t2_typ
+        sec_df2_DW01_add_3
+            ADFULD1                  umcl18u250t2_typ
+            EXOR3D1                  umcl18u250t2_typ
+            OAI21D1                  umcl18u250t2_typ
+            OAI21M20D1               umcl18u250t2_typ
+            OAI211D1                 umcl18u250t2_typ
+        sec_df2_DW_mult_tc_0                   r
+            ADFULD1                  umcl18u250t2_typ
+            ADHALFDL                 umcl18u250t2_typ
+            EXOR2D1                  umcl18u250t2_typ
+            EXOR3D1                  umcl18u250t2_typ
+            INVD1                    umcl18u250t2_typ
+            NAN2D1                   umcl18u250t2_typ
+        sec_df2_DW_mult_tc_4                   r
+            ADFULD1                  umcl18u250t2_typ
+            ADHALFDL                 umcl18u250t2_typ
+            INVD1                    umcl18u250t2_typ
+            NAN2D1                   umcl18u250t2_typ
+            NAN2M1D1                 umcl18u250t2_typ
+            OAI211D1                 umcl18u250t2_typ
+1
+dc_shell> Information: Updating graph... (UID-83)
+ 
+****************************************
+Report : reference
+Design : sec_df2_std
+Version: R-2020.09-SP2
+Date   : Tue Mar 21 15:57:15 2023
+****************************************
+
+Attributes:
+    b - black box (unknown)
+   bo - allows boundary optimization
+    d - dont_touch
+   mo - map_only
+    h - hierarchical
+    n - noncombinational
+    r - removable
+    s - synthetic operator
+    u - contains unmapped logic
+
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+sec_df2                       10822.580228       1  10822.580228  h, n
+-----------------------------------------------------------------------------
+Total 1 references                                  10822.580228
+
+****************************************
+Design: sec_df2 
+****************************************
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+ADFULD1            umcl18u250t2_typ
+                                 65.050003      48   3122.400146  r
+ADHALFDL           umcl18u250t2_typ
+                                 40.660000       6    243.959999  r
+AND2D1             umcl18u250t2_typ
+                                 16.260000      15    243.900003  
+DFFRPQ1            umcl18u250t2_typ
+                                 81.309998      24   1951.439941  n
+EXOR2D1            umcl18u250t2_typ
+                                 28.459999      19    540.739983  
+INVD1              umcl18u250t2_typ
+                                  8.130000      10     81.300001  
+NAN2D1             umcl18u250t2_typ
+                                 12.200000       2     24.400000  
+TIEHI              umcl18u250t2_typ
+                                  8.130000       1      8.130000  
+TIELO              umcl18u250t2_typ
+                                  8.130000       1      8.130000  
+sec_df2_DW01_add_1              508.200020       1    508.200020  h
+sec_df2_DW01_add_2              768.390020       1    768.390020  h
+sec_df2_DW01_add_3              800.910019       1    800.910019  h
+sec_df2_DW_mult_tc_0           1532.740059       1   1532.740059  h
+sec_df2_DW_mult_tc_4            987.940036       1    987.940036  h
+-----------------------------------------------------------------------------
+Total 14 references                                 10822.580228
+
+****************************************
+Design: sec_df2_DW01_add_1 
+****************************************
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+ADFULD1            umcl18u250t2_typ
+                                 65.050003       7    455.350021  r
+EXOR3D1            umcl18u250t2_typ
+                                 52.849998       1     52.849998  
+-----------------------------------------------------------------------------
+Total 2 references                                    508.200020
+
+****************************************
+Design: sec_df2_DW01_add_2 
+****************************************
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+ADFULD1            umcl18u250t2_typ
+                                 65.050003       8    520.400024  r
+AND2D1             umcl18u250t2_typ
+                                 16.260000       1     16.260000  
+EXOR3D1            umcl18u250t2_typ
+                                 52.849998       1     52.849998  
+OAI21D1            umcl18u250t2_typ
+                                 20.330000       4     81.320000  
+OAI21M20D1         umcl18u250t2_typ
+                                 24.389999       4     97.559998  
+-----------------------------------------------------------------------------
+Total 5 references                                    768.390020
+
+****************************************
+Design: sec_df2_DW01_add_3 
+****************************************
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+ADFULD1            umcl18u250t2_typ
+                                 65.050003       8    520.400024  r
+EXOR3D1            umcl18u250t2_typ
+                                 52.849998       1     52.849998  
+OAI21D1            umcl18u250t2_typ
+                                 20.330000       4     81.320000  
+OAI21M20D1         umcl18u250t2_typ
+                                 24.389999       5    121.949997  
+OAI211D1           umcl18u250t2_typ
+                                 24.389999       1     24.389999  
+-----------------------------------------------------------------------------
+Total 5 references                                    800.910019
+
+****************************************
+Design: sec_df2_DW_mult_tc_0 
+****************************************
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+ADFULD1            umcl18u250t2_typ
+                                 65.050003      20   1301.000061  r
+ADHALFDL           umcl18u250t2_typ
+                                 40.660000       2     81.320000  r
+EXOR2D1            umcl18u250t2_typ
+                                 28.459999       1     28.459999  
+EXOR3D1            umcl18u250t2_typ
+                                 52.849998       1     52.849998  
+INVD1              umcl18u250t2_typ
+                                  8.130000       7     56.910001  
+NAN2D1             umcl18u250t2_typ
+                                 12.200000       1     12.200000  
+-----------------------------------------------------------------------------
+Total 6 references                                   1532.740059
+
+****************************************
+Design: sec_df2_DW_mult_tc_4 
+****************************************
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+ADFULD1            umcl18u250t2_typ
+                                 65.050003      12    780.600037  r
+ADHALFDL           umcl18u250t2_typ
+                                 40.660000       1     40.660000  r
+INVD1              umcl18u250t2_typ
+                                  8.130000       6     48.780001  
+NAN2D1             umcl18u250t2_typ
+                                 12.200000       3     36.599999  
+NAN2M1D1           umcl18u250t2_typ
+                                 16.260000       2     32.520000  
+OAI211D1           umcl18u250t2_typ
+                                 24.389999       2     48.779999  
+-----------------------------------------------------------------------------
+Total 6 references                                    987.940036
+1
+dc_shell> dc_shell> dc_shell>  
+****************************************
+Report : resources
+Design : sec_df2_std
+Version: R-2020.09-SP2
+Date   : Tue Mar 21 15:57:15 2023
+****************************************
+
+
+No resource sharing information to report.
+
+No implementations to report
+ 
+****************************************
+Design : sec_df2
+****************************************
+Resource Sharing Report for design sec_df2 in file ./sec_df2.vhd
+
+===============================================================================
+|          |              |            | Contained     |                      |
+| Resource | Module       | Parameters | Resources     | Contained Operations |
+===============================================================================
+| r424     | DW01_add     | width=8    |               | add_1_root_add_136   |
+| r434     | DW01_add     | width=8    |               | add_416_C139_rn      |
+| r1159    | DW_mult_tc   | a_width=7  |               | mult_134             |
+|          |              | b_width=8  |               |                      |
+| r1161    | DW_mult_tc   | a_width=8  |               | mult_132             |
+|          |              | b_width=8  |               |                      |
+| r1163    | DW01_add     | width=15   |               | add_138              |
+| r1888    | DW_mult_tc   | a_width=7  |               | mult_133             |
+|          |              | b_width=8  |               |                      |
+| r1890    | DW_mult_tc   | a_width=8  |               | mult_131             |
+|          |              | b_width=8  |               |                      |
+| r1892    | DW01_add     | width=15   |               | add_135              |
+| r2617    | DW01_add     | width=8    |               | add_416_C138_rn      |
+| r2619    | DW_mult_tc   | a_width=7  |               | mult_137             |
+|          |              | b_width=8  |               |                      |
+| r2621    | DW01_add     | width=15   |               | add_139              |
+===============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| add_138            | DW01_add         | rpl                |                |
+| mult_132           | DW_mult_tc       | apparch (area)     |                |
+| add_135            | DW01_add         | rpl                |                |
+| mult_137           | DW_mult_tc       | apparch (area)     |                |
+| add_1_root_add_136 | DW01_add         | rpl                |                |
+===============================================================================
+
+1
+dc_shell> dc_shell> dc_shell> TRUE
+dc_shell> Warning: Design 'sec_df2_std' inherited license information from design 'sec_df2'. (DDB-74)
+Information: Added key list 'DesignWare' to design 'sec_df2_std'. (DDB-72)
+1
+dc_shell> dc_shell> dc_shell>  
+****************************************
+Report : reference
+Design : sec_df2_std
+Version: R-2020.09-SP2
+Date   : Tue Mar 21 15:57:15 2023
+****************************************
+
+Attributes:
+    b - black box (unknown)
+   bo - allows boundary optimization
+    d - dont_touch
+   mo - map_only
+    h - hierarchical
+    n - noncombinational
+    r - removable
+    s - synthetic operator
+    u - contains unmapped logic
+
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+ADFULD1            umcl18u250t2_typ
+                                 65.050003     103   6700.150314  r
+ADHALFDL           umcl18u250t2_typ
+                                 40.660000       9    365.939999  r
+AND2D1             umcl18u250t2_typ
+                                 16.260000      16    260.160004  
+DFFRPQ1            umcl18u250t2_typ
+                                 81.309998      24   1951.439941  n
+EXOR2D1            umcl18u250t2_typ
+                                 28.459999      20    569.199982  
+EXOR3D1            umcl18u250t2_typ
+                                 52.849998       4    211.399994  
+INVD1              umcl18u250t2_typ
+                                  8.130000      23    186.990003  
+NAN2D1             umcl18u250t2_typ
+                                 12.200000       6     73.199999  
+NAN2M1D1           umcl18u250t2_typ
+                                 16.260000       2     32.520000  
+OAI21D1            umcl18u250t2_typ
+                                 20.330000       8    162.639999  
+OAI21M20D1         umcl18u250t2_typ
+                                 24.389999       9    219.509995  
+OAI211D1           umcl18u250t2_typ
+                                 24.389999       3     73.169998  
+TIEHI              umcl18u250t2_typ
+                                  8.130000       1      8.130000  
+TIELO              umcl18u250t2_typ
+                                  8.130000       1      8.130000  
+-----------------------------------------------------------------------------
+Total 14 references                                 10822.580228
+1
+dc_shell> dc_shell> Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : sec_df2_std
+Version: R-2020.09-SP2
+Date   : Tue Mar 21 15:57:15 2023
+****************************************
+
+Operating Conditions: nom_pvt   Library: umcl18u250t2_typ
+Wire Load Model Mode: top
+
+  Startpoint: data_in(0) (input port clocked by clock)
+  Endpoint: sec_df2_inst/arx_p2_out_reg_reg_7_
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    5.00       5.00 f
+  data_in(0) (in)                                         0.00       5.00 f
+  sec_df2_inst/add_1_root_add_136/U1_0/CO (ADFULD1)       0.17       5.17 f
+  sec_df2_inst/add_1_root_add_136/U1_1/CO (ADFULD1)       0.16       5.34 f
+  sec_df2_inst/add_1_root_add_136/U1_2/CO (ADFULD1)       0.16       5.50 f
+  sec_df2_inst/add_1_root_add_136/U1_3/CO (ADFULD1)       0.16       5.66 f
+  sec_df2_inst/add_1_root_add_136/U1_4/CO (ADFULD1)       0.16       5.82 f
+  sec_df2_inst/add_1_root_add_136/U1_5/CO (ADFULD1)       0.16       5.98 f
+  sec_df2_inst/add_1_root_add_136/U1_6/S (ADFULD1)        0.34       6.32 r
+  sec_df2_inst/mult_137/U20/S (ADHALFDL)                  0.20       6.52 f
+  sec_df2_inst/mult_137/U9/CO (ADFULD1)                   0.18       6.70 f
+  sec_df2_inst/mult_137/U8/CO (ADFULD1)                   0.16       6.86 f
+  sec_df2_inst/mult_137/U7/CO (ADFULD1)                   0.16       7.03 f
+  sec_df2_inst/mult_137/U6/CO (ADFULD1)                   0.16       7.19 f
+  sec_df2_inst/mult_137/U5/CO (ADFULD1)                   0.16       7.35 f
+  sec_df2_inst/mult_137/U4/CO (ADFULD1)                   0.16       7.51 f
+  sec_df2_inst/mult_137/U3/S (ADFULD1)                    0.22       7.73 f
+  sec_df2_inst/add_139_U1_12/CO (ADFULD1)                 0.18       7.90 f
+  sec_df2_inst/add_139_U1_13/CO (ADFULD1)                 0.16       8.07 f
+  sec_df2_inst/add_139_U1_14/S (ADFULD1)                  0.23       8.30 r
+  sec_df2_inst/U15/Z (EXOR2D1)                            0.14       8.44 f
+  sec_df2_inst/arx_p2_out_reg_reg_7_/D (DFFRPQ1)          0.00       8.44 f
+  data arrival time                                                  8.44
+
+  clock clock (rise edge)                                10.00      10.00
+  clock network delay (ideal)                             0.00      10.00
+  sec_df2_inst/arx_p2_out_reg_reg_7_/CK (DFFRPQ1)         0.00      10.00 r
+  library setup time                                     -0.04       9.96
+  data required time                                                 9.96
+  --------------------------------------------------------------------------
+  data required time                                                 9.96
+  data arrival time                                                 -8.44
+  --------------------------------------------------------------------------
+  slack (MET)                                                        1.53
+
+
+1
+dc_shell> dc_shell> dc_shell> 1
+dc_shell> dc_shell> dc_shell> flat_rtl_none_10
+dc_shell> dc_shell> dc_shell> Writing vhdl file '/home/s2981416/MAPTEST/vhdl/synopsys_out/sec_df2_std_rtl_none_10_flat.vhd'.
+1
+dc_shell> dc_shell> dc_shell> Writing ddc file 'synopsys_out/sec_df2_std_rtl_none_10_flat.ddc'.
+1
+dc_shell> dc_shell> dc_shell> dc_shell> Information: Annotated 'cell' delays are assumed to include load delay. (UID-282)
+Information: Writing timing information to file '/home/s2981416/MAPTEST/vhdl/synopsys_out/sec_df2_std_rtl_none_10_flat.sdf'. (WT-3)
+1
+dc_shell> 
+Memory usage for this session 153 Mbytes.
+Memory usage for this session including child processes 153 Mbytes.
+CPU usage for this session 5 seconds ( 0.00 hours ).
+Elapsed time for this session 6 seconds ( 0.00 hours ).
+
+Thank you...
