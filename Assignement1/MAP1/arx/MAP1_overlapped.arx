@@ -157,7 +157,6 @@ begin
 			# p2
 			a2_in_l = r3
 			a2_in_r = r4
-			o1		= a2_out
 
 		when T_state.cycle1
 			# p1
@@ -189,6 +188,8 @@ begin
 			i1 = data_in
 			# p3
 			r2 = a1_out
+			# Output
+			o1		= a2_out
 
 		when T_state.cycle1
 			state = T_state.cycle2
