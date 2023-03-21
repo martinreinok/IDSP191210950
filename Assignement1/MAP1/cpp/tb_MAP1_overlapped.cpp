@@ -17,7 +17,7 @@
 // parameters
 // -----------------------------------------------------------------------------
 
-#define TOP_DESIGN MAP1
+#define TOP_DESIGN MAP1_overlapped
 
 #define WORD_LENGTH 8
 #define INT_WORD_LENGTH 5
