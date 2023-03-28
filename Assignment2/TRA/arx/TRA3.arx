@@ -209,9 +209,9 @@ begin
 			# m2
 			r2 = m2_out
 			# m4
-			r3 = m3_out
+			r3 = m4_out
 			# m3
-			r4 = m4_out 
+			r4 = m3_out 
 			
 		when T_state.cycle2
 			state = T_state.cycle3
