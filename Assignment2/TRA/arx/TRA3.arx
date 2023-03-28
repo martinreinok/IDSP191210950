@@ -77,17 +77,17 @@ variable
 	
 	# multiplier 3 inputs and output
 	m3_in_l: T_coef
-	m3_in_l: T_data
+	m3_in_r: T_data
 	m3_out:	T_mult
 	
 	# multiplier 4 inputs and output
 	m4_in_l: T_coef
-	m4_in_l: T_data
+	m4_in_r: T_data
 	m4_out:	T_mult
 	
 	# multiplier 5 inputs and output
 	m5_in_l: T_coef
-	m5_in_l: T_data
+	m5_in_r: T_data
 	m5_out:	T_mult
 	
 	# adder input and output
