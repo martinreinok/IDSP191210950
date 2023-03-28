@@ -12,7 +12,7 @@
 
 
 # declare your sourcefiles here
-SOURCEFILES = TRA2.arx
+SOURCEFILES = TRA3.arx
 
 # paths
 VHDL_PATH = ../vhdl

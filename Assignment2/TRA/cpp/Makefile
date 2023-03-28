@@ -29,7 +29,7 @@ LIBS  = -L$(LIB_PATH) -larxutil `itpp-config --libs`
 
 # source files
 # SOURCES = sec_par.cpp sec_ser.cpp
-SOURCES = TRA2.cpp
+SOURCES = TRA3.cpp
 
 # compiler
 CC = g++
