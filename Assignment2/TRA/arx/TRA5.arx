@@ -1,0 +1,109 @@
+# -----------------------------------------------------------------------------
+# File         : TRA5.arx
+# Description  : second-order IIR filter, direct-form II version for
+#                IDSP course
+# Author       : 
+# Creation date: 
+# -----------------------------------------------------------------------------
+# $Rev: 1$
+# $Author: 
+# $Date: 
+# $Log$
+# -----------------------------------------------------------------------------
+
+
+component top
+  # declare first fixed-point parameters for data and coefficients
+  wl_data:  generic integer = 8
+  iwl_data: generic integer = 5
+  wl_coef:  generic integer = 8
+  iwl_coef: generic integer = 1
+
+  # now declare the data types for data and coefficients
+  T_data: generic type = signed(wl_data, iwl_data, wrap, round)
+  T_coef: generic type = signed(wl_coef, iwl_coef, sat, round)
+
+  # now declare the IO
+  data_in:  in  T_data
+  data_out: out T_data
+  data_in_2:  in  T_data
+  data_out_2: out T_data
+
+# SG: unfortunately, declaring the filter coefficients as constants
+# generates the wrong code; the workaround consists of declaring them
+# as variables and assigning them a constant value.
+
+# constant
+#   # the filter coefficients
+#   b2: T_coef = 0.449067766265545
+#   b1: T_coef = -0.803316855076157
+#   b0: T_coef = 0.449067766265545
+#   a2: T_coef = -0.387641686503134
+#   a1: T_coef = 0.519937751601787
+
+# the intermediate data type after multiplication
+type
+  T_mult: signed(wl_data+wl_coef, iwl_data+iwl_coef)
+
+
+register
+  # the delay elements in the filter
+  z1: T_data = 0
+  z2: T_data = 0
+  z3: T_data = 0
+  # store the output in a register
+  p2_out: T_data = 0
+
+variable
+  # the intermediate results of multiplications and additions
+  m1: T_mult
+  m2: T_mult
+  m3: T_mult
+  m4: T_mult
+  m5: T_mult
+
+  # additions all have outputs of the I/O data type
+  p1: T_data
+  p2: T_data
+  p3: T_data
+  p4: T_data
+
+  # the coefficients (see remark above)
+  b2: T_coef
+  b1: T_coef
+  b0: T_coef
+  a2: T_coef
+  a1: T_coef
+
+begin
+  # assign the coefficients a value
+  b2 = 0.449067766265545
+  b1 = -0.803316855076157
+  b0 = 0.449067766265545
+  a2 = -0.387641686503134
+  a1 = 0.519937751601787
+
+  # combinational logic
+  # note: even when single-assignment, Arx does not re-order
+  # statements
+  m2 = a1 * z1
+  m3 = b1 * z2
+  m4 = a2 * z2
+  m5 = b2 * z3
+
+  p3 = m2 + m4
+  p1 = p3 + data_in
+  m1 = b0 * z1
+  p4 = m3 + m5
+  p2 = m1 + p4
+
+  # storage
+  z1     = p1
+  z2     = z1
+  z3     = z2
+  p2_out = p2
+
+  # wire output
+  data_out = p2_out
+end
+
