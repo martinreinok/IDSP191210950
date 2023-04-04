@@ -104,13 +104,13 @@ int main(int argc, char* argv[])
                           itpp::RND_ZERO);               // rounding to zero
     double d_input = fixp_input.unfix();
     k++;
-    itpp::Fix fixp_input (vSource(k),
+    itpp::Fix fixp_input2 (vSource(k),
                           WORD_LENGTH - INT_WORD_LENGTH, // fractional bits
                           WORD_LENGTH,
                           itpp::TC,                      // two's complement
                           itpp::SAT,                     // saturation
                           itpp::RND_ZERO);               // rounding to zero
-    double d_input2 = fixp_input.unfix();
+    double d_input2 = fixp_input2.unfix();
 	
     
 
