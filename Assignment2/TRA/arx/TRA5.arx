@@ -48,11 +48,12 @@ type
 
 register
   # the delay elements in the filter
+  z0: T_data = 0
   z1: T_data = 0
   z2: T_data = 0
-  z3: T_data = 0
   # store the output in a register
   p2_out: T_data = 0
+  p2_out_2: T_data = 0
 
 variable
   # the intermediate results of multiplications and additions
@@ -67,6 +68,19 @@ variable
   p2: T_data
   p3: T_data
   p4: T_data
+
+  # Unfolded multipliers
+  m1_2: T_mult
+  m2_2: T_mult
+  m3_2: T_mult
+  m4_2: T_mult
+  m5_2: T_mult
+
+  # Unfolded adders
+  p1_2: T_data
+  p2_2: T_data
+  p3_2: T_data
+  p4_2: T_data
 
   # the coefficients (see remark above)
   b2: T_coef
@@ -87,23 +101,36 @@ begin
   # note: even when single-assignment, Arx does not re-order
   # statements
   m2 = a1 * z1
-  m3 = b1 * z2
+  m3 = b1 * z1
   m4 = a2 * z2
-  m5 = b2 * z3
+  m5 = b2 * z2
 
   p3 = m2 + m4
   p1 = p3 + data_in
-  m1 = b0 * z1
+  m1 = b0 * p1
   p4 = m3 + m5
   p2 = m1 + p4
 
+  # Unfolded
+  m2_2 = a1_2 * p1
+  m3_2 = b1 * p1
+  m4_2 = a2_2 * z1
+  m5_2 = b2 * z1
+
+  p3_2 = m2_2 + m4_2
+  p1_2 = p3_2 + data_in_2
+  m1_2 = b0 * p1_2
+  p4_2 = m3_2 + m5_2
+  p2_2 = m1_2 + p4_2
+
   # storage
-  z1     = p1
-  z2     = z1
-  z3     = z2
+  z1     = p1_2
+  z2     = p1
   p2_out = p2
+  p2_out_2 = p2_2
 
   # wire output
   data_out = p2_out
+  data_out_2 = p2_out_2
 end
 

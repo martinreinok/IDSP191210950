@@ -103,26 +103,41 @@ int main(int argc, char* argv[])
                           itpp::SAT,                     // saturation
                           itpp::RND_ZERO);               // rounding to zero
     double d_input = fixp_input.unfix();
-    
-    
     k++;
+    itpp::Fix fixp_input (vSource(k),
+                          WORD_LENGTH - INT_WORD_LENGTH, // fractional bits
+                          WORD_LENGTH,
+                          itpp::TC,                      // two's complement
+                          itpp::SAT,                     // saturation
+                          itpp::RND_ZERO);               // rounding to zero
+    double d_input2 = fixp_input.unfix();
+	
     
 
     // now convert Arx format
     i32 arx_input = double_to_signed32(d_input, WORD_LENGTH, INT_WORD_LENGTH);
     i32 arx_output;
+	
+	i32 arx_input2 = double_to_signed32(d_input2, WORD_LENGTH, INT_WORD_LENGTH);
+    i32 arx_output2;
 
     // call filter
     for (int i = 0; i < CLOCKS_PER_SAMPLE; i++)
-      hardware.run(arx_input, arx_output);
+      hardware.run(arx_input, arx_output, arx_input2, arx_output2);
     
-    double d_output = (1.0*arx_output) / 
-                         (1 << (WORD_LENGTH - INT_WORD_LENGTH));
+    double d_output = (1.0*arx_output) / (1 << (WORD_LENGTH - INT_WORD_LENGTH));
+	double d_output2 = (1.0*arx_output2) / (1 << (WORD_LENGTH - INT_WORD_LENGTH)); 
+	
     // save inputs and outputs
     oFileIn     << arx_input  << std::endl;
     oFileInFix  << d_input    << std::endl;
     oFileOut    << arx_output << std::endl;
     oFileOutFix << d_output   << std::endl;
+	
+	oFileIn     << arx_input2  << std::endl;
+    oFileInFix  << d_input2    << std::endl;
+    oFileOut    << arx_output2 << std::endl;
+    oFileOutFix << d_output2   << std::endl;
     
   }
   std::cout << "*** End of simulation ***" << std::endl;
