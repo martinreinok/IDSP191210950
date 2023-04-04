@@ -112,9 +112,9 @@ begin
   p2 = m1 + p4
 
   # Unfolded
-  m2_2 = a1_2 * p1
+  m2_2 = a1 * p1
   m3_2 = b1 * p1
-  m4_2 = a2_2 * z1
+  m4_2 = a2 * z1
   m5_2 = b2 * z1
 
   p3_2 = m2_2 + m4_2
