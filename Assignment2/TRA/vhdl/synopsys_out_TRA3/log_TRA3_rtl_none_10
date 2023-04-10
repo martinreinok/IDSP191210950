@@ -1,0 +1,827 @@
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version R-2020.09-SP2 for linux64 - Dec 03, 2020 
+
+                    Copyright (c) 1988 - 2020 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+dc_shell> dc_shell> arx_numeric.vhd TRA3.vhd
+dc_shell> TRA3
+dc_shell> clock
+dc_shell> none
+dc_shell> 10
+dc_shell> TRA3_rtl_none_10
+dc_shell> n
+dc_shell> n
+dc_shell> rtl_none_10
+dc_shell> dc_shell> dc_shell> dc_shell> dc_shell> Running PRESTO HDLC
+Compiling Package Declaration ARX_NUMERIC
+Compiling Package Body ARX_NUMERIC
+Presto compilation completed successfully.
+Loading db file '/remote/labware/technology/UMC/UMCL18U250D2_2.4/design_compiler/umcl18u250t2_typ.db'
+Loading db file '/remote/labware/packages/synopsys/syn/R-2020.09-SP2/libraries/syn/dw_foundation.sldb'
+Running PRESTO HDLC
+Compiling Entity Declaration TRA3_STD
+Compiling Architecture RTL of TRA3_STD
+Warning:  ./TRA3.vhd:18: The architecture rtl has already been analyzed. It is being replaced. (VHD-4)
+Compiling Entity Declaration TRA3
+Compiling Architecture RTL of TRA3
+Warning:  ./TRA3.vhd:61: The architecture rtl has already been analyzed. It is being replaced. (VHD-4)
+Presto compilation completed successfully.
+dc_shell> dc_shell> dc_shell> dc_shell> Loading db file '/remote/labware/packages/synopsys/syn/R-2020.09-SP2/libraries/syn/gtech.db'
+Loading db file '/remote/labware/packages/synopsys/syn/R-2020.09-SP2/libraries/syn/standard.sldb'
+Warning: The library named umcl18u250t2_typ specifies a very small trip-point value (0). (TIM-163)
+Warning: The library named umcl18u250t2_typ specifies a very small trip-point value (0). (TIM-163)
+  Loading link library 'umcl18u250t2_typ'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+
+Statistics for case statements in always block at line 114 in file
+	'./TRA3.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           198            |    auto/auto     |
+|           224            |    auto/auto     |
+|           245            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine TRA3 line 87 in file
+		'./TRA3.vhd'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  arx_state_reg_reg  | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   arx_i1_reg_reg    | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   arx_o1_reg_reg    | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   arx_r1_reg_reg    | Flip-flop |  15   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   arx_r2_reg_reg    | Flip-flop |  15   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   arx_r3_reg_reg    | Flip-flop |  15   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   arx_r4_reg_reg    | Flip-flop |  15   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   arx_d1_reg_reg    | Flip-flop |   9   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   arx_d2_reg_reg    | Flip-flop |   9   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   arx_d3_reg_reg    | Flip-flop |   9   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (TRA3)
+Elaborated 1 design.
+Current design is now 'TRA3'.
+1
+dc_shell> dc_shell> dc_shell> 1
+dc_shell> dc_shell> dc_shell> 1
+dc_shell> dc_shell> dc_shell> 1
+dc_shell> dc_shell> dc_shell> 1
+dc_shell> dc_shell> dc_shell> Current design is 'TRA3'.
+Error: Cannot rename design /home/s2981416/IDSP191210950/Assignment2/TRA/vhdl/TRA3.db:TRA3 over existing design /home/s2981416/IDSP191210950/Assignment2/TRA/vhdl/TRA3.db:TRA3. (UIMG-43)
+0
+dc_shell> dc_shell> dc_shell> dc_shell> FALSE
+dc_shell> dc_shell> dc_shell> Information: Checking out the license 'DesignWare'. (SEC-104)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | R-2020.09-DWBB_202009.2 |     *     |
+| Licensed DW Building Blocks        | R-2020.09-DWBB_202009.2 |     *     |
+============================================================================
+
+
+Information: There are 3 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'TRA3'
+Information: The register 'arx_d1_reg_reg[6]' is a constant and will be removed. (OPT-1206)
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Implementation Selection
+  ----------------------------------
+  Processing 'TRA3_DW01_add_0'
+  Processing 'TRA3_DW01_add_1'
+  Processing 'TRA3_DW01_add_2'
+  Processing 'TRA3_DW01_add_3'
+  Processing 'TRA3_DW01_add_4'
+  Processing 'TRA3_DW01_add_5'
+  Processing 'TRA3_DW01_add_6'
+  Mapping 'TRA3_DW_mult_tc_0'
+  Mapping 'TRA3_DW_mult_tc_1'
+  Mapping 'TRA3_DW_mult_tc_2'
+  Mapping 'TRA3_DW_mult_tc_3'
+  Mapping 'TRA3_DW_mult_tc_4'
+
+  Beginning Mapping Optimizations  (High effort)
+  -------------------------------
+Information: The register 'arx_r4_reg_reg[0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'arx_d2_reg_reg[6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'arx_d3_reg_reg[6]' is a constant and will be removed. (OPT-1206)
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:02   36940.4      0.00       0.0       0.0                          
+    0:00:02   36940.4      0.00       0.0       0.0                          
+    0:00:02   36940.4      0.00       0.0       0.0                          
+    0:00:02   36940.4      0.00       0.0       0.0                          
+    0:00:02   36940.4      0.00       0.0       0.0                          
+    0:00:02   27219.3      0.00       0.0       0.0                          
+    0:00:02   27215.3      0.00       0.0       0.0                          
+    0:00:02   27190.9      0.00       0.0       0.0                          
+    0:00:02   27190.9      0.00       0.0       0.0                          
+    0:00:02   27190.9      0.00       0.0       0.0                          
+    0:00:02   27190.9      0.00       0.0       0.0                          
+    0:00:02   27190.9      0.00       0.0       0.0                          
+    0:00:02   27190.9      0.00       0.0       0.0                          
+    0:00:02   27190.9      0.00       0.0       0.0                          
+    0:00:02   27190.9      0.00       0.0       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:02   27190.9      0.00       0.0       0.0                          
+    0:00:02   27190.9      0.00       0.0       0.0                          
+    0:00:02   27190.9      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:02   27190.9      0.00       0.0       0.0                          
+    0:00:02   27190.9      0.00       0.0       0.0                          
+    0:00:02   27117.7      0.00       0.0       0.0                          
+    0:00:02   27064.9      0.00       0.0       0.0                          
+    0:00:02   27024.2      0.00       0.0       0.0                          
+    0:00:02   26987.6      0.00       0.0       0.0                          
+    0:00:02   26967.3      0.00       0.0       0.0                          
+    0:00:02   26967.3      0.00       0.0       0.0                          
+    0:00:02   26967.3      0.00       0.0       0.0                          
+    0:00:02   26967.3      0.00       0.0       0.0                          
+    0:00:02   26967.3      0.00       0.0       0.0                          
+    0:00:02   26967.3      0.00       0.0       0.0                          
+    0:00:02   26967.3      0.00       0.0       0.0                          
+    0:00:02   26967.3      0.00       0.0       0.0                          
+    0:00:02   26442.8      0.00       0.0       0.0                          
+Loading db file '/remote/labware/technology/UMC/UMCL18U250D2_2.4/design_compiler/umcl18u250t2_typ.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+dc_shell> dc_shell> dc_shell>  
+****************************************
+check_design summary:
+Version:     R-2020.09-SP2
+Date:        Mon Apr 10 18:35:21 2023
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     39
+    Unconnected ports (LINT-28)                                    37
+    Shorted outputs (LINT-31)                                       2
+
+Cells                                                              10
+    Nets connected to multiple pins on same cell (LINT-33)         10
+--------------------------------------------------------------------------------
+
+Warning: In design 'TRA3_DW01_add_1', port 'CI' is not connected to any nets. (LINT-28)
+Warning: In design 'TRA3_DW01_add_1', port 'SUM[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'TRA3_DW01_add_1', port 'SUM[4]' is not connected to any nets. (LINT-28)
+Warning: In design 'TRA3_DW01_add_1', port 'SUM[3]' is not connected to any nets. (LINT-28)
+Warning: In design 'TRA3_DW01_add_1', port 'SUM[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'TRA3_DW01_add_1', port 'SUM[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'TRA3_DW01_add_1', port 'SUM[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'TRA3_DW01_add_1', port 'CO' is not connected to any nets. (LINT-28)
+Warning: In design 'TRA3_DW01_add_3', port 'CI' is not connected to any nets. (LINT-28)
+Warning: In design 'TRA3_DW01_add_3', port 'SUM[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'TRA3_DW01_add_3', port 'SUM[4]' is not connected to any nets. (LINT-28)
+Warning: In design 'TRA3_DW01_add_3', port 'SUM[3]' is not connected to any nets. (LINT-28)
+Warning: In design 'TRA3_DW01_add_3', port 'SUM[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'TRA3_DW01_add_3', port 'SUM[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'TRA3_DW01_add_3', port 'SUM[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'TRA3_DW01_add_3', port 'CO' is not connected to any nets. (LINT-28)
+Warning: In design 'TRA3_DW_mult_tc_0', port 'a[6]' is not connected to any nets. (LINT-28)
+Warning: In design 'TRA3_DW_mult_tc_0', port 'a[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'TRA3_DW_mult_tc_0', port 'a[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'TRA3_DW_mult_tc_1', port 'a[6]' is not connected to any nets. (LINT-28)
+Warning: In design 'TRA3_DW_mult_tc_1', port 'a[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'TRA3_DW_mult_tc_1', port 'a[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'TRA3_DW_mult_tc_1', port 'a[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'TRA3_DW_mult_tc_1', port 'product[15]' is not connected to any nets. (LINT-28)
+Warning: In design 'TRA3_DW_mult_tc_1', port 'product[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'TRA3_DW_mult_tc_2', port 'a[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'TRA3_DW_mult_tc_2', port 'a[4]' is not connected to any nets. (LINT-28)
+Warning: In design 'TRA3_DW_mult_tc_2', port 'product[15]' is not connected to any nets. (LINT-28)
+Warning: In design 'TRA3_DW_mult_tc_3', port 'a[7]' is not connected to any nets. (LINT-28)
+Warning: In design 'TRA3_DW_mult_tc_3', port 'a[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'TRA3_DW_mult_tc_3', port 'a[4]' is not connected to any nets. (LINT-28)
+Warning: In design 'TRA3_DW_mult_tc_3', port 'a[3]' is not connected to any nets. (LINT-28)
+Warning: In design 'TRA3_DW_mult_tc_3', port 'a[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'TRA3_DW_mult_tc_3', port 'product[15]' is not connected to any nets. (LINT-28)
+Warning: In design 'TRA3_DW_mult_tc_4', port 'a[6]' is not connected to any nets. (LINT-28)
+Warning: In design 'TRA3_DW_mult_tc_4', port 'a[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'TRA3_DW_mult_tc_4', port 'a[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'TRA3_DW_mult_tc_0', output port 'product[14]' is connected directly to output port 'product[13]'. (LINT-31)
+Warning: In design 'TRA3_DW_mult_tc_4', output port 'product[14]' is connected directly to output port 'product[13]'. (LINT-31)
+Warning: In design 'TRA3', the same net is connected to more than one pin on submodule 'mult_238'. (LINT-33)
+   Net 'net1801' is connected to pins 'a[6]', 'a[2]'', 'a[1]'.
+Warning: In design 'TRA3', the same net is connected to more than one pin on submodule 'mult_238'. (LINT-33)
+   Net 'n193' is connected to pins 'a[5]', 'a[4]'', 'a[3]', 'a[0]'.
+Warning: In design 'TRA3', the same net is connected to more than one pin on submodule 'mult_242'. (LINT-33)
+   Net 'net1801' is connected to pins 'a[6]', 'a[2]'', 'a[1]'.
+Warning: In design 'TRA3', the same net is connected to more than one pin on submodule 'mult_242'. (LINT-33)
+   Net 'm5_in_l_0' is connected to pins 'a[5]', 'a[4]'', 'a[3]', 'a[0]'.
+Warning: In design 'TRA3', the same net is connected to more than one pin on submodule 'mult_240'. (LINT-33)
+   Net 'm5_in_l_0' is connected to pins 'a[7]', 'a[4]'', 'a[3]', 'a[1]'.
+Warning: In design 'TRA3', the same net is connected to more than one pin on submodule 'mult_240'. (LINT-33)
+   Net 'net1801' is connected to pins 'a[6]', 'a[5]'', 'a[2]', 'a[0]'.
+Warning: In design 'TRA3', the same net is connected to more than one pin on submodule 'mult_241'. (LINT-33)
+   Net 'm5_in_l_0' is connected to pins 'a[7]', 'a[6]'', 'a[3]', 'a[2]', 'a[1]', 'a[0]'.
+Warning: In design 'TRA3', the same net is connected to more than one pin on submodule 'mult_241'. (LINT-33)
+   Net 'net1801' is connected to pins 'a[5]', 'a[4]''.
+Warning: In design 'TRA3', the same net is connected to more than one pin on submodule 'mult_239'. (LINT-33)
+   Net 'net1801' is connected to pins 'a[7]', 'a[5]'', 'a[4]', 'a[3]', 'a[2]'.
+Warning: In design 'TRA3', the same net is connected to more than one pin on submodule 'mult_239'. (LINT-33)
+   Net 'm5_in_l_0' is connected to pins 'a[6]', 'a[1]'', 'a[0]'.
+1
+dc_shell> dc_shell> dc_shell> dc_shell> dc_shell> dc_shell> dc_shell> dc_shell> dc_shell> NMA-16 VHDL-286 UCN-4
+dc_shell> 1
+dc_shell> Warning: In the design TRA3_DW_mult_tc_0, net 'product[13]' is connecting multiple ports. (UCN-1)
+Warning: In the design TRA3_DW_mult_tc_4, net 'product[13]' is connecting multiple ports. (UCN-1)
+1
+dc_shell> dc_shell> 1
+dc_shell> dc_shell> dc_shell> hier_rtl_none_10
+dc_shell> dc_shell> dc_shell> Writing vhdl file '/home/s2981416/IDSP191210950/Assignment2/TRA/vhdl/synopsys_out/TRA3_rtl_none_10_hier.vhd'.
+Warning: A dummy net 'n_1000' is created to connect open pin 'a(6)'. (VHDL-290)
+Warning: A dummy net 'n_1001' is created to connect open pin 'a(2)'. (VHDL-290)
+Warning: A dummy net 'n_1002' is created to connect open pin 'a(1)'. (VHDL-290)
+Warning: A dummy net 'n_1003' is created to connect open pin 'a(7)'. (VHDL-290)
+Warning: A dummy net 'n_1004' is created to connect open pin 'a(5)'. (VHDL-290)
+Warning: A dummy net 'n_1005' is created to connect open pin 'a(4)'. (VHDL-290)
+Warning: A dummy net 'n_1006' is created to connect open pin 'a(3)'. (VHDL-290)
+Warning: A dummy net 'n_1007' is created to connect open pin 'a(2)'. (VHDL-290)
+Warning: A dummy net 'n_1008' is created to connect open pin 'product(15)'. (VHDL-290)
+Warning: A dummy net 'n_1009' is created to connect open pin 'a(5)'. (VHDL-290)
+Warning: A dummy net 'n_1010' is created to connect open pin 'a(4)'. (VHDL-290)
+Warning: A dummy net 'n_1011' is created to connect open pin 'product(15)'. (VHDL-290)
+Warning: A dummy net 'n_1012' is created to connect open pin 'a(6)'. (VHDL-290)
+Warning: A dummy net 'n_1013' is created to connect open pin 'a(5)'. (VHDL-290)
+Warning: A dummy net 'n_1014' is created to connect open pin 'a(2)'. (VHDL-290)
+Warning: A dummy net 'n_1015' is created to connect open pin 'a(0)'. (VHDL-290)
+Warning: A dummy net 'n_1016' is created to connect open pin 'product(15)'. (VHDL-290)
+Warning: A dummy net 'n_1017' is created to connect open pin 'product(0)'. (VHDL-290)
+Warning: A dummy net 'n_1018' is created to connect open pin 'a(6)'. (VHDL-290)
+Warning: A dummy net 'n_1019' is created to connect open pin 'a(2)'. (VHDL-290)
+Warning: A dummy net 'n_1020' is created to connect open pin 'a(1)'. (VHDL-290)
+Warning: A dummy net 'n_1021' is created to connect open pin 'CI'. (VHDL-290)
+Warning: A dummy net 'n_1022' is created to connect open pin 'SUM(5)'. (VHDL-290)
+Warning: A dummy net 'n_1023' is created to connect open pin 'SUM(4)'. (VHDL-290)
+Warning: A dummy net 'n_1024' is created to connect open pin 'SUM(3)'. (VHDL-290)
+Warning: A dummy net 'n_1025' is created to connect open pin 'SUM(2)'. (VHDL-290)
+Warning: A dummy net 'n_1026' is created to connect open pin 'SUM(1)'. (VHDL-290)
+Warning: A dummy net 'n_1027' is created to connect open pin 'SUM(0)'. (VHDL-290)
+Warning: A dummy net 'n_1028' is created to connect open pin 'CO'. (VHDL-290)
+Warning: A dummy net 'n_1029' is created to connect open pin 'CI'. (VHDL-290)
+Warning: A dummy net 'n_1030' is created to connect open pin 'SUM(5)'. (VHDL-290)
+Warning: A dummy net 'n_1031' is created to connect open pin 'SUM(4)'. (VHDL-290)
+Warning: A dummy net 'n_1032' is created to connect open pin 'SUM(3)'. (VHDL-290)
+Warning: A dummy net 'n_1033' is created to connect open pin 'SUM(2)'. (VHDL-290)
+Warning: A dummy net 'n_1034' is created to connect open pin 'SUM(1)'. (VHDL-290)
+Warning: A dummy net 'n_1035' is created to connect open pin 'SUM(0)'. (VHDL-290)
+Warning: A dummy net 'n_1036' is created to connect open pin 'CO'. (VHDL-290)
+Warning: A dummy net 'n_1037' is created to connect open pin 'SUM(5)'. (VHDL-290)
+Warning: A dummy net 'n_1038' is created to connect open pin 'SUM(4)'. (VHDL-290)
+Warning: A dummy net 'n_1039' is created to connect open pin 'SUM(3)'. (VHDL-290)
+Warning: A dummy net 'n_1040' is created to connect open pin 'SUM(2)'. (VHDL-290)
+Warning: A dummy net 'n_1041' is created to connect open pin 'SUM(1)'. (VHDL-290)
+Warning: A dummy net 'n_1042' is created to connect open pin 'SUM(0)'. (VHDL-290)
+Warning: A dummy net 'n_1043' is created to connect open pin 'CO'. (VHDL-290)
+Warning: A dummy net 'n_1044' is created to connect open pin 'SUM(5)'. (VHDL-290)
+Warning: A dummy net 'n_1045' is created to connect open pin 'SUM(4)'. (VHDL-290)
+Warning: A dummy net 'n_1046' is created to connect open pin 'SUM(3)'. (VHDL-290)
+Warning: A dummy net 'n_1047' is created to connect open pin 'SUM(2)'. (VHDL-290)
+Warning: A dummy net 'n_1048' is created to connect open pin 'SUM(1)'. (VHDL-290)
+Warning: A dummy net 'n_1049' is created to connect open pin 'SUM(0)'. (VHDL-290)
+Warning: A dummy net 'n_1050' is created to connect open pin 'CO'. (VHDL-290)
+Warning: A dummy net 'n_1051' is created to connect open pin 'product(15)'. (VHDL-290)
+Warning: A dummy net 'n_1052' is created to connect open pin 'product(0)'. (VHDL-290)
+Warning: A dummy net 'n_1053' is created to connect open pin 'product(15)'. (VHDL-290)
+Warning: A dummy net 'n_1054' is created to connect open pin 'product(15)'. (VHDL-290)
+1
+dc_shell> dc_shell> dc_shell>  
+****************************************
+Report : hierarchy
+Design : TRA3
+Version: R-2020.09-SP2
+Date   : Mon Apr 10 18:35:21 2023
+****************************************
+
+Attributes:
+    r - licensed design
+
+TRA3
+    AND2D1                    umcl18u250t2_typ
+    AO22D1                    umcl18u250t2_typ
+    AOI22D1                   umcl18u250t2_typ
+    DFERPQ1                   umcl18u250t2_typ
+    DFFRPQ1                   umcl18u250t2_typ
+    EXOR2D1                   umcl18u250t2_typ
+    INVBD2                    umcl18u250t2_typ
+    INVD1                     umcl18u250t2_typ
+    NAN2D1                    umcl18u250t2_typ
+    NAN2M1D1                  umcl18u250t2_typ
+    NOR2D1                    umcl18u250t2_typ
+    NOR2D2                    umcl18u250t2_typ
+    NOR2M1D1                  umcl18u250t2_typ
+    OAI21D1                   umcl18u250t2_typ
+    OAI22D1                   umcl18u250t2_typ
+    OAI22M10D1                umcl18u250t2_typ
+    OR2D1                     umcl18u250t2_typ
+    TIELO                     umcl18u250t2_typ
+    TRA3_DW01_add_1
+        ADFULD1               umcl18u250t2_typ
+        EXOR3D1               umcl18u250t2_typ
+        OAI21D1               umcl18u250t2_typ
+        OAI21M20D1            umcl18u250t2_typ
+        OAI211D1              umcl18u250t2_typ
+    TRA3_DW01_add_3
+        ADFULD1               umcl18u250t2_typ
+        EXOR3D1               umcl18u250t2_typ
+        OAI21D1               umcl18u250t2_typ
+        OAI21M20D1            umcl18u250t2_typ
+        OAI211D1              umcl18u250t2_typ
+    TRA3_DW_mult_tc_0                   r
+        ADFULD1               umcl18u250t2_typ
+        ADHALFDL              umcl18u250t2_typ
+        INVD1                 umcl18u250t2_typ
+        NAN2D1                umcl18u250t2_typ
+        NOR2D1                umcl18u250t2_typ
+    TRA3_DW_mult_tc_1                   r
+        ADFULD1               umcl18u250t2_typ
+        ADHALFDL              umcl18u250t2_typ
+        AND2D1                umcl18u250t2_typ
+        EXNOR2D1              umcl18u250t2_typ
+        EXNOR3D1              umcl18u250t2_typ
+        INVD1                 umcl18u250t2_typ
+        NAN2D1                umcl18u250t2_typ
+        NOR2D1                umcl18u250t2_typ
+        NOR2M1D1              umcl18u250t2_typ
+    TRA3_DW_mult_tc_2                   r
+        ADFULD1               umcl18u250t2_typ
+        ADHALFDL              umcl18u250t2_typ
+        AND2D1                umcl18u250t2_typ
+        EXNOR2D1              umcl18u250t2_typ
+        EXOR3D1               umcl18u250t2_typ
+        INVD1                 umcl18u250t2_typ
+        NAN2D1                umcl18u250t2_typ
+        NOR2D1                umcl18u250t2_typ
+    TRA3_DW_mult_tc_3                   r
+        ADFULD1               umcl18u250t2_typ
+        ADHALFDL              umcl18u250t2_typ
+        INVD1                 umcl18u250t2_typ
+        NAN2D1                umcl18u250t2_typ
+        NOR2D1                umcl18u250t2_typ
+    TRA3_DW_mult_tc_4                   r
+        ADFULD1               umcl18u250t2_typ
+        ADHALFDL              umcl18u250t2_typ
+        INVD1                 umcl18u250t2_typ
+        NAN2D1                umcl18u250t2_typ
+        NOR2D1                umcl18u250t2_typ
+1
+dc_shell> Information: Updating graph... (UID-83)
+ 
+****************************************
+Report : reference
+Design : TRA3
+Version: R-2020.09-SP2
+Date   : Mon Apr 10 18:35:21 2023
+****************************************
+
+Attributes:
+    b - black box (unknown)
+   bo - allows boundary optimization
+    d - dont_touch
+   mo - map_only
+    h - hierarchical
+    n - noncombinational
+    r - removable
+    s - synthetic operator
+    u - contains unmapped logic
+
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+AND2D1             umcl18u250t2_typ
+                                 16.260000      22    357.720005  
+AO22D1             umcl18u250t2_typ
+                                 32.520000      14    455.280006  
+AOI22D1            umcl18u250t2_typ
+                                 24.389999      31    756.089981  
+DFERPQ1            umcl18u250t2_typ
+                                101.639999      54   5488.559967  n
+DFFRPQ1            umcl18u250t2_typ
+                                 81.309998      47   3821.569885  n
+EXOR2D1            umcl18u250t2_typ
+                                 28.459999      16    455.359985  
+INVBD2             umcl18u250t2_typ
+                                 16.260000       8    130.080002  
+INVD1              umcl18u250t2_typ
+                                  8.130000      61    495.930007  
+NAN2D1             umcl18u250t2_typ
+                                 12.200000       5     60.999999  
+NAN2M1D1           umcl18u250t2_typ
+                                 16.260000       2     32.520000  
+NOR2D1             umcl18u250t2_typ
+                                 12.200000      47    573.399991  
+NOR2D2             umcl18u250t2_typ
+                                 20.330000       2     40.660000  
+NOR2M1D1           umcl18u250t2_typ
+                                 16.260000       1     16.260000  
+OAI21D1            umcl18u250t2_typ
+                                 20.330000      31    630.229998  
+OAI22D1            umcl18u250t2_typ
+                                 24.389999      15    365.849991  
+OAI22M10D1         umcl18u250t2_typ
+                                 32.520000      22    715.440010  
+OR2D1              umcl18u250t2_typ
+                                 16.260000       1     16.260000  
+TIELO              umcl18u250t2_typ
+                                  8.130000       1      8.130000  
+TRA3_DW01_add_1                 800.910019       1    800.910019  h
+TRA3_DW01_add_3                 800.910019       1    800.910019  h
+TRA3_DW_mult_tc_0              1975.990059       1   1975.990059  h
+TRA3_DW_mult_tc_1              1955.640055       1   1955.640055  h
+TRA3_DW_mult_tc_2              3114.420090       1   3114.420090  h
+TRA3_DW_mult_tc_3              1398.640039       1   1398.640039  h
+TRA3_DW_mult_tc_4              1975.990059       1   1975.990059  h
+-----------------------------------------------------------------------------
+Total 25 references                                 26442.840168
+
+****************************************
+Design: TRA3_DW01_add_1 
+****************************************
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+ADFULD1            umcl18u250t2_typ
+                                 65.050003       8    520.400024  r
+EXOR3D1            umcl18u250t2_typ
+                                 52.849998       1     52.849998  
+OAI21D1            umcl18u250t2_typ
+                                 20.330000       4     81.320000  
+OAI21M20D1         umcl18u250t2_typ
+                                 24.389999       5    121.949997  
+OAI211D1           umcl18u250t2_typ
+                                 24.389999       1     24.389999  
+-----------------------------------------------------------------------------
+Total 5 references                                    800.910019
+
+****************************************
+Design: TRA3_DW01_add_3 
+****************************************
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+ADFULD1            umcl18u250t2_typ
+                                 65.050003       8    520.400024  r
+EXOR3D1            umcl18u250t2_typ
+                                 52.849998       1     52.849998  
+OAI21D1            umcl18u250t2_typ
+                                 20.330000       4     81.320000  
+OAI21M20D1         umcl18u250t2_typ
+                                 24.389999       5    121.949997  
+OAI211D1           umcl18u250t2_typ
+                                 24.389999       1     24.389999  
+-----------------------------------------------------------------------------
+Total 5 references                                    800.910019
+
+****************************************
+Design: TRA3_DW_mult_tc_0 
+****************************************
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+ADFULD1            umcl18u250t2_typ
+                                 65.050003      21   1366.050064  r
+ADHALFDL           umcl18u250t2_typ
+                                 40.660000       3    121.980000  r
+INVD1              umcl18u250t2_typ
+                                  8.130000      12     97.560001  
+NAN2D1             umcl18u250t2_typ
+                                 12.200000       7     85.399999  
+NOR2D1             umcl18u250t2_typ
+                                 12.200000      25    304.999995  
+-----------------------------------------------------------------------------
+Total 5 references                                   1975.990059
+
+****************************************
+Design: TRA3_DW_mult_tc_1 
+****************************************
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+ADFULD1            umcl18u250t2_typ
+                                 65.050003      20   1301.000061  r
+ADHALFDL           umcl18u250t2_typ
+                                 40.660000       2     81.320000  r
+AND2D1             umcl18u250t2_typ
+                                 16.260000       2     32.520000  
+EXNOR2D1           umcl18u250t2_typ
+                                 28.459999       1     28.459999  
+EXNOR3D1           umcl18u250t2_typ
+                                 52.849998       1     52.849998  
+INVD1              umcl18u250t2_typ
+                                  8.130000       9     73.170001  
+NAN2D1             umcl18u250t2_typ
+                                 12.200000      14    170.799997  
+NOR2D1             umcl18u250t2_typ
+                                 12.200000      15    182.999997  
+NOR2M1D1           umcl18u250t2_typ
+                                 16.260000       2     32.520000  
+-----------------------------------------------------------------------------
+Total 9 references                                   1955.640055
+
+****************************************
+Design: TRA3_DW_mult_tc_2 
+****************************************
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+ADFULD1            umcl18u250t2_typ
+                                 65.050003      33   2146.650101  r
+ADHALFDL           umcl18u250t2_typ
+                                 40.660000       5    203.299999  r
+AND2D1             umcl18u250t2_typ
+                                 16.260000       1     16.260000  
+EXNOR2D1           umcl18u250t2_typ
+                                 28.459999       1     28.459999  
+EXOR3D1            umcl18u250t2_typ
+                                 52.849998       1     52.849998  
+INVD1              umcl18u250t2_typ
+                                  8.130000      10     81.300001  
+NAN2D1             umcl18u250t2_typ
+                                 12.200000      17    207.399997  
+NOR2D1             umcl18u250t2_typ
+                                 12.200000      31    378.199994  
+-----------------------------------------------------------------------------
+Total 8 references                                   3114.420090
+
+****************************************
+Design: TRA3_DW_mult_tc_3 
+****************************************
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+ADFULD1            umcl18u250t2_typ
+                                 65.050003      14    910.700043  r
+ADHALFDL           umcl18u250t2_typ
+                                 40.660000       2     81.320000  r
+INVD1              umcl18u250t2_typ
+                                  8.130000      14    113.820002  
+NAN2D1             umcl18u250t2_typ
+                                 12.200000       8     97.599998  
+NOR2D1             umcl18u250t2_typ
+                                 12.200000      16    195.199997  
+-----------------------------------------------------------------------------
+Total 5 references                                   1398.640039
+
+****************************************
+Design: TRA3_DW_mult_tc_4 
+****************************************
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+ADFULD1            umcl18u250t2_typ
+                                 65.050003      21   1366.050064  r
+ADHALFDL           umcl18u250t2_typ
+                                 40.660000       3    121.980000  r
+INVD1              umcl18u250t2_typ
+                                  8.130000      12     97.560001  
+NAN2D1             umcl18u250t2_typ
+                                 12.200000       7     85.399999  
+NOR2D1             umcl18u250t2_typ
+                                 12.200000      25    304.999995  
+-----------------------------------------------------------------------------
+Total 5 references                                   1975.990059
+1
+dc_shell> dc_shell> dc_shell>  
+****************************************
+Report : resources
+Design : TRA3
+Version: R-2020.09-SP2
+Date   : Mon Apr 10 18:35:21 2023
+****************************************
+
+Resource Sharing Report for design TRA3 in file ./TRA3.vhd
+
+===============================================================================
+|          |              |            | Contained     |                      |
+| Resource | Module       | Parameters | Resources     | Contained Operations |
+===============================================================================
+| r412     | DW01_add     | width=8    |               | add_416_C201_rn      |
+|          |              |            |               | add_416_C210_rn      |
+|          |              |            |               | add_416_C218_rn      |
+|          |              |            |               | add_416_C221_rn      |
+| r413     | DW01_add     | width=8    |               | add_416_C203_rn      |
+|          |              |            |               | add_416_C205_rn      |
+|          |              |            |               | add_416_C212_rn      |
+|          |              |            |               | add_416_C214_rn      |
+| r414     | DW01_add     | width=8    |               | add_416_C207_rn      |
+|          |              |            |               | add_416_C216_rn      |
+| r444     | DW01_add     | width=15   |               | add_243              |
+| r446     | DW01_add     | width=8    |               | add_416_C243_rn      |
+| r448     | DW01_add     | width=15   |               | add_244              |
+| r450     | DW01_add     | width=8    |               | add_416_C244_rn      |
+| r1166    | DW_mult_tc   | a_width=7  |               | mult_242             |
+|          |              | b_width=8  |               |                      |
+| r1882    | DW_mult_tc   | a_width=8  |               | mult_240             |
+|          |              | b_width=8  |               |                      |
+| r2598    | DW_mult_tc   | a_width=8  |               | mult_241             |
+|          |              | b_width=8  |               |                      |
+| r3314    | DW_mult_tc   | a_width=8  |               | mult_239             |
+|          |              | b_width=8  |               |                      |
+| r4030    | DW_mult_tc   | a_width=7  |               | mult_238             |
+|          |              | b_width=8  |               |                      |
+===============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| mult_239           | DW_mult_tc       | apparch (area)     |                |
+|                    |                  | mult_arch: and     |                |
+| mult_241           | DW_mult_tc       | apparch (area)     |                |
+|                    |                  | mult_arch: and     |                |
+| mult_240           | DW_mult_tc       | apparch (area)     |                |
+|                    |                  | mult_arch: and     |                |
+| mult_242           | DW_mult_tc       | apparch (area)     |                |
+|                    |                  | mult_arch: and     |                |
+| mult_238           | DW_mult_tc       | apparch (area)     |                |
+|                    |                  | mult_arch: and     |                |
+| add_243            | DW01_add         | rpl                |                |
+| add_244            | DW01_add         | rpl                |                |
+===============================================================================
+
+1
+dc_shell> dc_shell> dc_shell> TRUE
+dc_shell> Warning: Design 'TRA3' inherited license information from design 'TRA3_DW_mult_tc_4'. (DDB-74)
+Information: Added key list 'DesignWare' to design 'TRA3'. (DDB-72)
+1
+dc_shell> dc_shell> dc_shell>  
+****************************************
+Report : reference
+Design : TRA3
+Version: R-2020.09-SP2
+Date   : Mon Apr 10 18:35:21 2023
+****************************************
+
+Attributes:
+    b - black box (unknown)
+   bo - allows boundary optimization
+    d - dont_touch
+   mo - map_only
+    h - hierarchical
+    n - noncombinational
+    r - removable
+    s - synthetic operator
+    u - contains unmapped logic
+
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+ADFULD1            umcl18u250t2_typ
+                                 65.050003     125   8131.250381  r
+ADHALFDL           umcl18u250t2_typ
+                                 40.660000      15    609.899998  r
+AND2D1             umcl18u250t2_typ
+                                 16.260000      25    406.500006  
+AO22D1             umcl18u250t2_typ
+                                 32.520000      14    455.280006  
+AOI22D1            umcl18u250t2_typ
+                                 24.389999      31    756.089981  
+DFERPQ1            umcl18u250t2_typ
+                                101.639999      54   5488.559967  n
+DFFRPQ1            umcl18u250t2_typ
+                                 81.309998      47   3821.569885  n
+EXNOR2D1           umcl18u250t2_typ
+                                 28.459999       2     56.919998  
+EXNOR3D1           umcl18u250t2_typ
+                                 52.849998       1     52.849998  
+EXOR2D1            umcl18u250t2_typ
+                                 28.459999      16    455.359985  
+EXOR3D1            umcl18u250t2_typ
+                                 52.849998       3    158.549995  
+INVBD2             umcl18u250t2_typ
+                                 16.260000       8    130.080002  
+INVD1              umcl18u250t2_typ
+                                  8.130000     118    959.340014  
+NAN2D1             umcl18u250t2_typ
+                                 12.200000      58    707.599989  
+NAN2M1D1           umcl18u250t2_typ
+                                 16.260000       2     32.520000  
+NOR2D1             umcl18u250t2_typ
+                                 12.200000     159   1939.799970  
+NOR2D2             umcl18u250t2_typ
+                                 20.330000       2     40.660000  
+NOR2M1D1           umcl18u250t2_typ
+                                 16.260000       3     48.780001  
+OAI21D1            umcl18u250t2_typ
+                                 20.330000      39    792.869997  
+OAI21M20D1         umcl18u250t2_typ
+                                 24.389999      10    243.899994  
+OAI22D1            umcl18u250t2_typ
+                                 24.389999      15    365.849991  
+OAI22M10D1         umcl18u250t2_typ
+                                 32.520000      22    715.440010  
+OAI211D1           umcl18u250t2_typ
+                                 24.389999       2     48.779999  
+OR2D1              umcl18u250t2_typ
+                                 16.260000       1     16.260000  
+TIELO              umcl18u250t2_typ
+                                  8.130000       1      8.130000  
+-----------------------------------------------------------------------------
+Total 25 references                                 26442.840168
+1
+dc_shell> dc_shell> Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : TRA3
+Version: R-2020.09-SP2
+Date   : Mon Apr 10 18:35:21 2023
+****************************************
+
+Operating Conditions: nom_pvt   Library: umcl18u250t2_typ
+Wire Load Model Mode: top
+
+  Startpoint: data_in(7) (input port clocked by clock)
+  Endpoint: arx_i1_reg_reg_7_
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  input external delay                     5.00       5.00 r
+  data_in(7) (in)                          0.00       5.00 r
+  arx_i1_reg_reg_7_/D (DFERPQ1)            0.00       5.00 r
+  data arrival time                                   5.00
+
+  clock clock (rise edge)                 10.00      10.00
+  clock network delay (ideal)              0.00      10.00
+  arx_i1_reg_reg_7_/CK (DFERPQ1)           0.00      10.00 r
+  library setup time                      -0.11       9.89
+  data required time                                  9.89
+  -----------------------------------------------------------
+  data required time                                  9.89
+  data arrival time                                  -5.00
+  -----------------------------------------------------------
+  slack (MET)                                         4.89
+
+
+1
+dc_shell> dc_shell> dc_shell> 1
+dc_shell> dc_shell> dc_shell> flat_rtl_none_10
+dc_shell> dc_shell> dc_shell> Writing vhdl file '/home/s2981416/IDSP191210950/Assignment2/TRA/vhdl/synopsys_out/TRA3_rtl_none_10_flat.vhd'.
+1
+dc_shell> dc_shell> dc_shell> Writing ddc file 'synopsys_out/TRA3_rtl_none_10_flat.ddc'.
+1
+dc_shell> dc_shell> dc_shell> dc_shell> Information: Annotated 'cell' delays are assumed to include load delay. (UID-282)
+Information: Writing timing information to file '/home/s2981416/IDSP191210950/Assignment2/TRA/vhdl/synopsys_out/TRA3_rtl_none_10_flat.sdf'. (WT-3)
+1
+dc_shell> 
+Memory usage for this session 153 Mbytes.
+Memory usage for this session including child processes 153 Mbytes.
+CPU usage for this session 6 seconds ( 0.00 hours ).
+Elapsed time for this session 7 seconds ( 0.00 hours ).
+
+Thank you...
