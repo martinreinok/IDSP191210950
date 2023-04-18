@@ -1,0 +1,54 @@
+# -----------------------------------------------------------------------------
+# Top-level: Mixer
+# -----------------------------------------------------------------------------
+
+component top
+  # - Accuracy of the phase shift to apply
+  #   (this should depend on the number in phase_step and phase_corr)
+  PHASE_LENGTH    : generic integer = 5
+
+  # Datapath used in this component
+  IO_WL          : generic integer = 9
+  IO_IWL         : generic integer = 4
+  ARRAY_LENGTH   : generic integer = 4
+
+  # Generic - types
+  T_IN    : generic type = signed(IO_WL, IO_IWL)
+  T_OUT   : generic type = signed(IO_WL, IO_IWL)
+  T_PHASE : generic type = signed(PHASE_LENGTH, 1)
+  INTEGER_SIGNED : generic type = signed(2, 2)
+  INTEGER_UNSIGNED : generic type = unsigned(4, 4)
+
+  # Ports
+  data_in           : in T_IN
+  
+  data_out_i : out T_OUT
+  data_out_q : out T_OUT
+  
+constant
+  sin_array : array[ARRAY_LENGTH] of INTEGER_SIGNED = {0, 1, 0, -1}
+  cos_array : array[ARRAY_LENGTH] of INTEGER_SIGNED = {1, 0, -1, 0}
+
+variable
+  # corrected_step : T_PHASE  # phase step, after correction
+  phase_i : INTEGER_UNSIGNED
+
+register
+  # phase_step : T_PHASE = 0.5  # Phase shift added to each input vector
+  sin_array_2 : array[ARRAY_LENGTH] of INTEGER_SIGNED = {0, 1, 0, -1}
+  cos_array_2 : array[ARRAY_LENGTH] of INTEGER_SIGNED = {1, 0, -1, 0}
+
+begin
+
+  # apply phase corrections to the phase step size
+  # corrected_step = phase_step + phase_corr
+  
+  data_out_q = data_in * sin_array_2[phase_i]
+  data_out_i = data_in * cos_array_2[phase_i]
+  
+  if phase_i < 4
+   phase_i = phase_i + 1
+  else
+   phase_i = 0
+  end
+end
