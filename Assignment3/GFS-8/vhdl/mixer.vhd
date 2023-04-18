@@ -337,8 +337,32 @@ entity mixer is
 end mixer;
 
 architecture rtl of mixer is
+   type arx_sin_array_array_type is array (0 to 7) of signed(4 downto 0);
+   type arx_cos_array_array_type is array (0 to 7) of signed(4 downto 0);
 
    constant arx_phase_step_reset : signed(4 downto 0) := "00100";
+   constant arx_sin_array_reset : arx_sin_array_array_type := 
+      (
+      "00000",
+      "01011",
+      "01111",
+      "01011",
+      "00000",
+      "10101",
+      "10000",
+      "10101"
+      );
+   constant arx_cos_array_reset : arx_cos_array_array_type := 
+      (
+      "01111",
+      "01011",
+      "00000",
+      "10101",
+      "10000",
+      "10101",
+      "00000",
+      "01011"
+      );
 
    component phase_acc_signed_5_1_8
       port (
@@ -373,6 +397,8 @@ architecture rtl of mixer is
    signal arx_i_cordic_y_out : signed(8 downto 0);
    signal arx_i_cordic_p_out : signed(4 downto 0);
    signal arx_phase_step_reg, arx_phase_step_nxt : signed(4 downto 0);
+   signal arx_sin_array_reg, arx_sin_array_nxt : arx_sin_array_array_type;
+   signal arx_cos_array_reg, arx_cos_array_nxt : arx_cos_array_array_type;
 begin
 
    i_acc : phase_acc_signed_5_1_8
@@ -400,21 +426,32 @@ begin
    begin
       if resetn = '0' then
          arx_phase_step_reg <= arx_phase_step_reset;
+         arx_sin_array_reg <= arx_sin_array_reset;
+         arx_cos_array_reg <= arx_cos_array_reset;
       elsif rising_edge(clock) then
          arx_phase_step_reg <= arx_phase_step_nxt;
+         for i in 0 to 7 loop
+            arx_sin_array_reg(i) <= arx_sin_array_nxt(i);
+         end loop;
+         for i in 0 to 7 loop
+            arx_cos_array_reg(i) <= arx_cos_array_nxt(i);
+         end loop;
       end if;
    end process registers;
 
-   update : process (arx_i_acc_phase_sum, arx_i_cordic_x_out, arx_i_cordic_y_out, arx_i_cordic_p_out, data_in, phase_corr, arx_phase_step_reg)
-      variable cordic_in_x : signed(8 downto 0); -- reads=1, writes=1
-      variable cordic_in_y : signed(8 downto 0); -- reads=1, writes=1
-      variable cordic_out_x : signed(8 downto 0); -- reads=1, writes=1
-      variable cordic_out_y : signed(8 downto 0); -- reads=1, writes=1
+   update : process (arx_i_acc_phase_sum, arx_i_cordic_x_out, arx_i_cordic_y_out, arx_i_cordic_p_out, data_in, phase_corr, arx_phase_step_reg, arx_sin_array_reg, arx_cos_array_reg)
+      variable cordic_in_x : signed(8 downto 0); -- reads=1, writes=0
+      variable cordic_in_y : signed(8 downto 0); -- reads=1, writes=0
+      variable cordic_out_x : signed(8 downto 0); -- reads=0, writes=1
+      variable cordic_out_y : signed(8 downto 0); -- reads=0, writes=1
       variable cordic_out_p : signed(4 downto 0); -- reads=0, writes=1
+      variable phase_i : unsigned(3 downto 0); -- reads=4, writes=2
       variable phase_sum : signed(4 downto 0); -- reads=1, writes=1
-      variable cordic_op_mode : std_logic; -- reads=1, writes=1
-      variable corrected_step : signed(4 downto 0); -- reads=1, writes=1
-      variable phase_step : signed(4 downto 0); -- reads=1, writes=0
+      variable cordic_op_mode : std_logic; -- reads=1, writes=0
+      variable corrected_step : signed(4 downto 0); -- reads=1, writes=0
+      variable phase_step : signed(4 downto 0); -- reads=0, writes=0
+      variable sin_array : arx_sin_array_array_type; -- reads=1, writes=0
+      variable cos_array : arx_cos_array_array_type; -- reads=1, writes=0
    begin
       --initialize variables and outports
       cordic_in_x := to_signed(0, 9);
@@ -422,6 +459,7 @@ begin
       cordic_out_x := to_signed(0, 9);
       cordic_out_y := to_signed(0, 9);
       cordic_out_p := to_signed(0, 5);
+      phase_i := to_unsigned(0, 4);
       phase_sum := to_signed(0, 5);
       cordic_op_mode := '0';
       corrected_step := to_signed(0, 5);
@@ -429,18 +467,25 @@ begin
       data_out_q <= to_signed(0, 9);
       --copy register values to local variables
       phase_step := arx_phase_step_reg;
+      for i in 0 to 7 loop
+         sin_array(i) := arx_sin_array_reg(i);
+      end loop;
+      for i in 0 to 7 loop
+         cos_array(i) := arx_cos_array_reg(i);
+      end loop;
       --read from component outports
       phase_sum := arx_i_acc_phase_sum;
       cordic_out_x := arx_i_cordic_x_out;
       cordic_out_y := arx_i_cordic_y_out;
       cordic_out_p := arx_i_cordic_p_out;
       --update outputs and register values
-      corrected_step := arx_wrap((arx_msb_extend(arx_phase_step_reg, 1) + arx_msb_extend(phase_corr, 1)), 1);
-      cordic_op_mode := '0';
-      cordic_in_x := "000000000";
-      cordic_in_y := data_in;
-      data_out_q <= cordic_out_x;
-      data_out_i <= cordic_out_y;
+      data_out_q <= arx_wrap(arx_truncate((data_in * arx_sin_array_reg(to_integer(phase_i))), 4), 1);
+      data_out_i <= arx_wrap(arx_truncate((data_in * arx_cos_array_reg(to_integer(phase_i))), 4), 1);
+      if phase_i < "1000" then
+         phase_i := arx_wrap((arx_msb_extend(phase_i, 1) + arx_msb_extend("0001", 1)), 1);
+      else
+         phase_i := "0000";
+      end if;
       --write to component inports
       arx_i_acc_phase_step <= corrected_step;
       arx_i_cordic_x_in <= cordic_in_x;
@@ -449,6 +494,12 @@ begin
       arx_i_cordic_op_mode <= cordic_op_mode;
       --copy local variables to next register values
       arx_phase_step_nxt <= phase_step;
+      for i in 0 to 7 loop
+         arx_sin_array_nxt(i) <= sin_array(i);
+      end loop;
+      for i in 0 to 7 loop
+         arx_cos_array_nxt(i) <= cos_array(i);
+      end loop;
    end process update;
 end rtl;
 
