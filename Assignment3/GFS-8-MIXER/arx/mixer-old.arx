@@ -1,0 +1,292 @@
+# -----------------------------------------------------------------------------
+# (C) Bibix
+# The content below includes confidential, proprietary information of
+# Bibix. All use, disclosure, and/or reproduction is prohibited
+# unless authorized in writing. All rights reserved.
+# -----------------------------------------------------------------------------
+# File         : mixer.arx
+# Description  : CORDIC-based mixer for GFSK demo
+# Author       : Sabih Gerez, Bibix
+#                based on work by Rene Moll (DSE)
+# Creation date: December 7, 2011
+# -----------------------------------------------------------------------------
+# $Rev: 1$
+# $Author: gerezsh$
+# $Date: Sun Mar 12 23:52:34 CET 2023$
+# $Log$
+# -----------------------------------------------------------------------------
+
+
+# -----------------------------------------------------------------------------
+# Implementation of a digital mixer
+# 
+# Based on the CORDIC module, a single input input is mixed based on a 
+# with a certain phase shift. Both I and Q parts are outputted individually.
+# The phase step is determined by two factors:
+# 1. A predefined phase step
+# 2. A phase correction generated at run-time
+# 
+# -----------------------------------------------------------------------------
+# Port map
+# -----------------------------------------------------------------------------
+# 
+#       phase_corr 
+#               | 
+#             +-------+
+#             |       | -> data_out_i
+# data_in --> | MIXER |
+#             |       | -> data_out_q
+#             +-------+
+# 
+# - Inputs
+# 
+# +--------------------------------------------------------+
+# |  NAME            | TYPE    |  Function                 |
+# +--------------------------------------------------------+
+# | data_in          | T_IO    | Input signal to mix       |
+# | phase_corr       | T_PHASE | Phase correction to apply |
+# +--------------------------------------------------------+
+# 
+# - Outputs
+# 
+# +--------------------------------------------------------+
+# |  NAME            | TYPE    |  Function                 |
+# +--------------------------------------------------------+
+# | data_out_i       | T_IO    | Inphase component         |
+# | data_out_q       | T_IO    | Quadrature compoent       |
+# +------------------+---------+---------------------------+
+#
+# -----------------------------------------------------------------------------
+# Phase step calculation
+# -----------------------------------------------------------------------------
+# 
+# In the CORDIC implementation [-pi,pi) is mapped to [-1,1).
+# 
+# The phase step is calculated by:
+#               2 * Fmix
+# step size =  ----------
+#                Fclock
+# 
+# Thus for a 1 [MHz] mixing signal and a 8 [MHz] clock the phase step is: 0.25
+# 
+# -----------------------------------------------------------------------------
+
+# -----------------------------------------------------------------------------
+# generic CORDIC module
+# -----------------------------------------------------------------------------
+
+component cordic
+  # Generic - settings
+  CORDIC_DEPTH : generic integer = 8
+  IO_LENGTH    : generic integer = 8
+  PHASE_LENGTH : generic integer = 10
+  
+  # Generic - types
+  # let's assume a fixed-point number as input with range [-1,1)
+  T_IN         : generic type = signed(IO_LENGTH, 1)
+  # the output's range will then be a scaled with approx. a factor of 1.6
+  T_OUT        : generic type = signed(IO_LENGTH+1, 2)
+
+  # map phase on fixed-point number such that [-pi,pi) maps to [-1,1)
+  T_PHASE      : generic type = signed(PHASE_LENGTH, 1)
+
+  # Ports
+  # Inputs: 
+  # - coordinate (X,Y) and phase (P)
+  x_in : in T_IN
+  y_in : in T_IN
+  p_in : in T_PHASE
+  
+  # - Operation mode (0 = rotational, 1 = vectoring)
+  op_mode : in bit
+  
+  # Outputs: 
+  # - for rotational cordinate (X,Y) with phase error (P) 
+  # - for vectoring (X,P) for magnitude and phase and error (Y)
+  x_out : out T_OUT
+  y_out : out T_OUT
+  p_out : out T_PHASE
+
+constant
+  # Look-up table for arctan(2^{-i}), scaled
+  aTan : array[CORDIC_DEPTH-1] of T_PHASE = {
+    0.25, 0.1475836, 0.0779791, 0.0395834, 0.0198685, 0.0099439, 0.0049732}
+
+variable
+  # Varaible to hold the sign of the current stage
+  d : array[CORDIC_DEPTH-1] of boolean
+  # shifted versions of x and y
+  x_sh : array[CORDIC_DEPTH-1] of T_OUT
+  y_sh : array[CORDIC_DEPTH-1] of T_OUT
+
+register
+  # Registers to store the current state
+  x  : array[CORDIC_DEPTH] of T_OUT = {0, 0, 0, 0, 0, 0, 0, 0}
+  y  : array[CORDIC_DEPTH] of T_OUT = {0, 0, 0, 0, 0, 0, 0, 0}
+  z  : array[CORDIC_DEPTH] of T_PHASE = {0, 0, 0, 0, 0, 0, 0, 0}
+
+begin
+  # Update output
+  x_out = x[CORDIC_DEPTH-1]
+  y_out = y[CORDIC_DEPTH-1]
+  p_out = z[CORDIC_DEPTH-1]
+  
+  # Iterate from the last stage to the second stage
+  for n in 0:CORDIC_DEPTH-2
+    d[CORDIC_DEPTH-n-2] = ((op_mode == 0 and z[CORDIC_DEPTH-n-2] >= 0) or 
+                           (op_mode == 1 and y[CORDIC_DEPTH-n-2] < 0))
+    # compute shifts
+    x_sh[CORDIC_DEPTH-n-2] = x[CORDIC_DEPTH-n-2] >> CORDIC_DEPTH-n-2
+    y_sh[CORDIC_DEPTH-n-2] = y[CORDIC_DEPTH-n-2] >> CORDIC_DEPTH-n-2
+    # NOTE: below, in the "then" and "else" branches the same operands
+    # are either added or subtracted; the synthesis tool can be helped
+    # by directly instantiating three "adder/subtractors"; the code
+    # below may result in three adders and three separate subtractors.
+    if (d[CORDIC_DEPTH-n-2] == true)
+       x[CORDIC_DEPTH-n-1] = x[CORDIC_DEPTH-n-2] - y_sh[CORDIC_DEPTH-n-2]
+       y[CORDIC_DEPTH-n-1] = y[CORDIC_DEPTH-n-2] + x_sh[CORDIC_DEPTH-n-2]
+       z[CORDIC_DEPTH-n-1] = z[CORDIC_DEPTH-n-2] - aTan[CORDIC_DEPTH-n-2]
+    else
+       x[CORDIC_DEPTH-n-1] = x[CORDIC_DEPTH-n-2] + y_sh[CORDIC_DEPTH-n-2]
+       y[CORDIC_DEPTH-n-1] = y[CORDIC_DEPTH-n-2] - x_sh[CORDIC_DEPTH-n-2]
+       z[CORDIC_DEPTH-n-1] = z[CORDIC_DEPTH-n-2] + aTan[CORDIC_DEPTH-n-2]
+    end
+  end
+  
+  # First stage: determine initial rotation (correct by 0.5 = 90 degrees)
+  if op_mode == 0
+    # Rotational mode
+    if (p_in > 0.5) or (p_in < -0.5)
+      x[0] = -x_in
+      y[0] = -y_in
+      z[0] = p_in + (-1)
+    else
+      x[0] = x_in
+      y[0] = y_in
+      z[0] = p_in
+    end
+  else
+    # Vectoring mode
+    if x_in <= 0
+      x[0] = -x_in
+      y[0] = -y_in
+      z[0] = p_in + (-1)
+    else
+      x[0] = x_in
+      y[0] = y_in
+      z[0] = p_in
+    end
+  end
+end
+
+# -----------------------------------------------------------------------------
+# Phase accumulator
+# -----------------------------------------------------------------------------
+
+component phase_acc
+  # Generic - settings
+  IO_LENGTH : generic integer = 8
+  
+  # Generic - types
+  T_PHASE : generic type = signed(IO_LENGTH, 1)
+  
+  # Ports
+  phase_step: in  T_PHASE
+  phase_sum : out T_PHASE
+
+register
+  phase_acc: T_PHASE = 0
+
+begin
+  # Perform summation
+  phase_acc = phase_acc + phase_step
+  
+  # Send out the new value
+  phase_sum = phase_acc
+end
+
+# -----------------------------------------------------------------------------
+# Top-level: Mixer
+# -----------------------------------------------------------------------------
+
+component top
+  # Generic - settings
+  # - Number of CORDIC iterations
+  CORDIC_DEPTH   : generic integer = 8
+  # - Accuracy of the phase shift to apply
+  #   (this should depend on the number in phase_step and phase_corr)
+  PHASE_LENGTH   : generic integer = 5
+
+  # Datapath used in this component
+  IO_WL          : generic integer = 9
+  IO_IWL         : generic integer = 4
+
+  # Generic - types
+  T_IN    : generic type = signed(IO_WL, IO_IWL)
+  T_OUT   : generic type = signed(IO_WL, IO_IWL)
+  T_PHASE : generic type = signed(PHASE_LENGTH, 1)
+
+  # Ports
+  data_in           : in T_IN
+  # phase_corr: meant for frequency-offset correction, not yet used
+  phase_corr        : in T_PHASE
+  
+  data_out_i : out T_OUT
+  data_out_q : out T_OUT
+
+variable
+  cordic_in_x  : T_IN
+  cordic_in_y  : T_IN
+  cordic_out_x : T_OUT
+  cordic_out_y : T_OUT
+  cordic_out_p : T_PHASE
+
+  phase_sum    : T_PHASE
+
+  # current version of Arx does not allow cordic_op_mode to be a
+  # constant, hence a variable
+  cordic_op_mode: bit 
+
+  # phase step, after correction
+  corrected_step: T_PHASE
+
+register
+  # Phase shift added to each input vector
+  phase_step : T_PHASE = 0.25
+  
+generate
+  i_acc: phase_acc
+    T_PHASE = T_PHASE
+    phase_step => corrected_step
+    phase_sum  => phase_sum
+  
+  i_cordic: cordic
+    CORDIC_DEPTH = CORDIC_DEPTH
+    T_IN         = T_IN
+    T_OUT        = T_OUT
+    T_PHASE      = T_PHASE
+    x_in    => cordic_in_x
+    y_in    => cordic_in_y
+    p_in    => phase_sum
+    op_mode => cordic_op_mode
+    x_out   => cordic_out_x
+    y_out   => cordic_out_y
+    p_out   => cordic_out_p
+begin
+  # apply phase corrections to the phase step size
+  corrected_step = phase_step + phase_corr
+
+  # Set CORDIC module in rotational mode
+  cordic_op_mode = 0
+
+  # Pass input to the CORDIC
+  # by connecting the signal to the y input, the y output will be
+  # data_in * cos(omega) (=I) and the x output data_in * sin(omega)
+  # (=Q)
+  cordic_in_x = 0
+  cordic_in_y = data_in
+  
+  # Let the CORDIC perform mixing and fetch the output
+  data_out_q = cordic_out_x
+  data_out_i = cordic_out_y
+end
