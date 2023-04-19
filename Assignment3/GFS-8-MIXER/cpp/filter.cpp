@@ -140,12 +140,12 @@ bool filter::init(void)
       init_vcd_vector(vcd_file, 9, "afg", "top__lpf_q__input:27");
       init_vcd_vector(vcd_file, 9, "afh", "data_in_i");
       init_vcd_vector(vcd_file, 9, "afi", "data_in_q");
-      init_vcd_vector(vcd_file, 5, "afj", "data_out_i");
-      init_vcd_vector(vcd_file, 5, "aga", "data_out_q");
+      init_vcd_vector(vcd_file, 7, "afj", "data_out_i");
+      init_vcd_vector(vcd_file, 7, "aga", "data_out_q");
       init_vcd_vector(vcd_file, 9, "agb", "top__lpf_i__data_in");
-      init_vcd_vector(vcd_file, 5, "agc", "top__lpf_i__data_out");
+      init_vcd_vector(vcd_file, 7, "agc", "top__lpf_i__data_out");
       init_vcd_vector(vcd_file, 9, "agd", "top__lpf_q__data_in");
-      init_vcd_vector(vcd_file, 5, "age", "top__lpf_q__data_out");
+      init_vcd_vector(vcd_file, 7, "age", "top__lpf_q__data_out");
       init_vcd_vector(vcd_file, 10, "agf", "top__lpf_i__pair0_28");
       init_vcd_vector(vcd_file, 10, "agg", "top__lpf_i__pair1_27");
       init_vcd_vector(vcd_file, 10, "agh", "top__lpf_i__pair3_25");
@@ -242,8 +242,8 @@ void filter::run
    (
       i32 data_in_i, // signed(9,4,Wrap,Trunc)
       i32 data_in_q, // signed(9,4,Wrap,Trunc)
-      i32 &data_out_i, // signed(5,1,Sat,Trunc)
-      i32 &data_out_q // signed(5,1,Sat,Trunc)
+      i32 &data_out_i, // signed(7,1,Sat,Trunc)
+      i32 &data_out_q // signed(7,1,Sat,Trunc)
    )
 {
    /* declare and init variables */
@@ -501,7 +501,7 @@ void filter::run
    top__lpf_i__t0_1_3_4_5_7_8_9_11_14 = (top__lpf_i__t0_1_3_4_5_7_8_9 + arx_lsb_extend(i32(top__lpf_i__t11_14), 3));
    top__lpf_i__t0_1_3_4_5_7_8_9_11_12_13_14 = (top__lpf_i__t0_1_3_4_5_7_8_9_11_14 + top__lpf_i__t12_13);
    top__lpf_i__sum_scaled = i32(top__lpf_i__t0_1_3_4_5_7_8_9_11_12_13_14);
-   top__lpf_i__data_out = arx_saturate(arx_truncate(top__lpf_i__sum_scaled, 11), 5, false);
+   top__lpf_i__data_out = arx_saturate(arx_truncate(top__lpf_i__sum_scaled, 9), 7, false);
    top__lpf_i__input[0] = top__lpf_i__data_in;
    top__lpf_q__pair0_28 = (top__lpf_q__data_in + arx_reg__top__lpf_q__input[27]);
    top__lpf_q__t0_1 = (top__lpf_q__pair0_28 + arx_lsb_extend(i32(top__lpf_q__pair1_27), 1));
@@ -510,7 +510,7 @@ void filter::run
    top__lpf_q__t0_1_3_4_5_7_8_9_11_14 = (top__lpf_q__t0_1_3_4_5_7_8_9 + arx_lsb_extend(i32(top__lpf_q__t11_14), 3));
    top__lpf_q__t0_1_3_4_5_7_8_9_11_12_13_14 = (top__lpf_q__t0_1_3_4_5_7_8_9_11_14 + top__lpf_q__t12_13);
    top__lpf_q__sum_scaled = i32(top__lpf_q__t0_1_3_4_5_7_8_9_11_12_13_14);
-   top__lpf_q__data_out = arx_saturate(arx_truncate(top__lpf_q__sum_scaled, 11), 5, false);
+   top__lpf_q__data_out = arx_saturate(arx_truncate(top__lpf_q__sum_scaled, 9), 7, false);
    top__lpf_q__input[0] = top__lpf_q__data_in;
    data_out_i = top__lpf_i__data_out;
    data_out_q = top__lpf_q__data_out;
@@ -518,12 +518,12 @@ void filter::run
       /* dump port values to VCD file */
       output_vcd_vector(vcd_file, u32(data_in_i), 9, "afh");
       output_vcd_vector(vcd_file, u32(data_in_q), 9, "afi");
-      output_vcd_vector(vcd_file, u32(data_out_i), 5, "afj");
-      output_vcd_vector(vcd_file, u32(data_out_q), 5, "aga");
+      output_vcd_vector(vcd_file, u32(data_out_i), 7, "afj");
+      output_vcd_vector(vcd_file, u32(data_out_q), 7, "aga");
       output_vcd_vector(vcd_file, u32(top__lpf_i__data_in), 9, "agb");
-      output_vcd_vector(vcd_file, u32(top__lpf_i__data_out), 5, "agc");
+      output_vcd_vector(vcd_file, u32(top__lpf_i__data_out), 7, "agc");
       output_vcd_vector(vcd_file, u32(top__lpf_q__data_in), 9, "agd");
-      output_vcd_vector(vcd_file, u32(top__lpf_q__data_out), 5, "age");
+      output_vcd_vector(vcd_file, u32(top__lpf_q__data_out), 7, "age");
       output_vcd_vector(vcd_file, u32(top__lpf_i__pair0_28), 10, "agf");
       output_vcd_vector(vcd_file, u32(top__lpf_i__pair1_27), 10, "agg");
       output_vcd_vector(vcd_file, u32(top__lpf_i__pair3_25), 10, "agh");

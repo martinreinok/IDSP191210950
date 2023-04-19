@@ -26,7 +26,7 @@ public:
    void run(
          i32 data_i, // signed(5,1,Wrap,Trunc)
          i32 data_q, // signed(5,1,Wrap,Trunc)
-         i32 &data_out // signed(7,1,Sat,Trunc)
+         i32 &data_out // signed(9,2,Sat,Trunc)
       );
 };
 #endif

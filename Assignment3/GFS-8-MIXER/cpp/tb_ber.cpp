@@ -400,7 +400,7 @@ int main(int argc, char* argv[])
 
           // for the time being, the mixer has a constant phase
           // correction of zero
-          oMixer.run(nMixInput, 0, nMixOutputI, nMixOutputQ);
+          oMixer.run(nMixInput, nMixOutputI, nMixOutputQ);
 
           dMixerI = signed_to_double(
             nMixOutputI,

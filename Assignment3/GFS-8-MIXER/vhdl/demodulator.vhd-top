@@ -12,7 +12,7 @@ entity top_std is
       resetn : in std_logic;
       data_i : in std_logic_vector(4 downto 0);
       data_q : in std_logic_vector(4 downto 0);
-      data_out : out std_logic_vector(6 downto 0)
+      data_out : out std_logic_vector(8 downto 0)
    );
 end top_std;
 
@@ -23,13 +23,13 @@ architecture rtl of top_std is
          resetn : in std_logic;
          data_i : in signed(4 downto 0);
          data_q : in signed(4 downto 0);
-         data_out : out signed(6 downto 0)
+         data_out : out signed(8 downto 0)
       );
    end component;
 
    signal arx_data_i : signed(4 downto 0);
    signal arx_data_q : signed(4 downto 0);
-   signal arx_data_out : signed(6 downto 0);
+   signal arx_data_out : signed(8 downto 0);
 begin
 
    top_inst : top
@@ -60,7 +60,7 @@ entity top is
       resetn : in std_logic;
       data_i : in signed(4 downto 0);
       data_q : in signed(4 downto 0);
-      data_out : out signed(6 downto 0)
+      data_out : out signed(8 downto 0)
    );
 end top;
 
@@ -116,7 +116,7 @@ begin
       --initialize variables and outports
       prod_q_id := to_signed(0, 10);
       prod_i_qd := to_signed(0, 10);
-      data_out <= to_signed(0, 7);
+      data_out <= to_signed(0, 9);
       --copy register values to local variables
       for i in 0 to 3 loop
          dem_samples_i(i) := arx_dem_samples_i_reg(i);
@@ -138,7 +138,7 @@ begin
       dem_samples_q(2) := arx_dem_samples_q_reg(1);
       dem_samples_i(3) := arx_dem_samples_i_reg(2);
       dem_samples_q(3) := arx_dem_samples_q_reg(2);
-      data_out <= arx_saturate(arx_truncate(arx_result_reg, 2), 2);
+      data_out <= arx_saturate(arx_truncate(arx_result_reg, 1), 1);
       --write to component inports
       --copy local variables to next register values
       for i in 0 to 3 loop

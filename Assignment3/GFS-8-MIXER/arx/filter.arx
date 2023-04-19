@@ -206,7 +206,7 @@ component top
   IN_IWL : generic integer = 4
 
   # - Datapath - output
-  OUT_WL  : generic integer = 5
+  OUT_WL  : generic integer = 7
   OUT_IWL : generic integer = 1
 
     # Generic - types

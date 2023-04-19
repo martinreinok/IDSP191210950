@@ -24,10 +24,9 @@ public:
    ~mixer() { exit(); }
    void reset(void);
    void run(
-         i32 data_in, // signed(9,4,Wrap,Trunc)
-         i32 phase_corr, // signed(5,1,Wrap,Trunc)
-         i32 &data_out_i, // signed(9,4,Wrap,Trunc)
-         i32 &data_out_q // signed(9,4,Wrap,Trunc)
+         i32 data_in, // signed(11,6,Wrap,Trunc)
+         i32 &data_out_i, // signed(11,6,Wrap,Trunc)
+         i32 &data_out_q // signed(11,6,Wrap,Trunc)
       );
 };
 #endif

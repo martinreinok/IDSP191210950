@@ -20,8 +20,8 @@
 #define SLICER_OFFSET 0
 
 // mixer size is also the size of the ADC
-#define MIXER_WORD_LENGTH   9
-#define MIXER_IWORD_LENGTH  4
+#define MIXER_WORD_LENGTH   11
+#define MIXER_IWORD_LENGTH  6
 
 // values below for interferer with amplitude 10
 // #define MIXER_WORD_LENGTH   10
@@ -42,7 +42,7 @@
 #ifdef ARX_FILTER
   #include "filter.h"
 
-  #define FILTER_WORD_LENGTH  5
+  #define FILTER_WORD_LENGTH  7
   #define FILTER_IWORD_LENGTH 1
 
   #undef  OUTPUT_FOLDER
@@ -57,8 +57,8 @@
 #ifdef ARX_DEMODULATOR
   #include "demodulator.h"
 
-  #define DEMODULATOR_WORD_LENGTH  7
-  #define DEMODULATOR_IWORD_LENGTH 1
+  #define DEMODULATOR_WORD_LENGTH  9
+  #define DEMODULATOR_IWORD_LENGTH 2
 
   #undef  OUTPUT_FOLDER
   #undef SYMBOL_OFFSET

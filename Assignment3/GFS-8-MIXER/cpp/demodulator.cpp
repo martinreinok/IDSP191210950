@@ -47,7 +47,7 @@ bool demodulator::init(void)
       init_vcd_vector(vcd_file, 11, "aaj", "top__result");
       init_vcd_vector(vcd_file, 5, "aba", "data_i");
       init_vcd_vector(vcd_file, 5, "abb", "data_q");
-      init_vcd_vector(vcd_file, 7, "abc", "data_out");
+      init_vcd_vector(vcd_file, 9, "abc", "data_out");
       init_vcd_vector(vcd_file, 10, "abd", "top__prod_q_id");
       init_vcd_vector(vcd_file, 10, "abe", "top__prod_i_qd");
       vcd_file << "$upscope $end\n";
@@ -85,7 +85,7 @@ void demodulator::run
    (
       i32 data_i, // signed(5,1,Wrap,Trunc)
       i32 data_q, // signed(5,1,Wrap,Trunc)
-      i32 &data_out // signed(7,1,Sat,Trunc)
+      i32 &data_out // signed(9,2,Sat,Trunc)
    )
 {
    /* declare and init variables */
@@ -132,12 +132,12 @@ void demodulator::run
    top__dem_samples_q[2] = arx_reg__top__dem_samples_q[1];
    top__dem_samples_i[3] = arx_reg__top__dem_samples_i[2];
    top__dem_samples_q[3] = arx_reg__top__dem_samples_q[2];
-   data_out = arx_saturate(arx_truncate(arx_reg__top__result, 2), 7, false);
+   data_out = arx_saturate(arx_truncate(arx_reg__top__result, 1), 9, false);
    #ifdef VCD_OUTPUT
       /* dump port values to VCD file */
       output_vcd_vector(vcd_file, u32(data_i), 5, "aba");
       output_vcd_vector(vcd_file, u32(data_q), 5, "abb");
-      output_vcd_vector(vcd_file, u32(data_out), 7, "abc");
+      output_vcd_vector(vcd_file, u32(data_out), 9, "abc");
       output_vcd_vector(vcd_file, u32(top__prod_q_id), 10, "abd");
       output_vcd_vector(vcd_file, u32(top__prod_i_qd), 10, "abe");
       vcd_file << "\n#" << vcd_time_stamp << '\n';

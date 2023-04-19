@@ -31,8 +31,8 @@ component top
   IN_IWL : generic integer = 1
 
   # - Datapath - output
-  OUT_WL  : generic integer = 7
-  OUT_IWL : generic integer = 1
+  OUT_WL  : generic integer = 9
+  OUT_IWL : generic integer = 2
 
   # # - number of delays
   ND : generic integer = 4

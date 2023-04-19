@@ -12,8 +12,8 @@ entity filter_std is
       resetn : in std_logic;
       data_in_i : in std_logic_vector(8 downto 0);
       data_in_q : in std_logic_vector(8 downto 0);
-      data_out_i : out std_logic_vector(4 downto 0);
-      data_out_q : out std_logic_vector(4 downto 0)
+      data_out_i : out std_logic_vector(6 downto 0);
+      data_out_q : out std_logic_vector(6 downto 0)
    );
 end filter_std;
 
@@ -24,15 +24,15 @@ architecture rtl of filter_std is
          resetn : in std_logic;
          data_in_i : in signed(8 downto 0);
          data_in_q : in signed(8 downto 0);
-         data_out_i : out signed(4 downto 0);
-         data_out_q : out signed(4 downto 0)
+         data_out_i : out signed(6 downto 0);
+         data_out_q : out signed(6 downto 0)
       );
    end component;
 
    signal arx_data_in_i : signed(8 downto 0);
    signal arx_data_in_q : signed(8 downto 0);
-   signal arx_data_out_i : signed(4 downto 0);
-   signal arx_data_out_q : signed(4 downto 0);
+   signal arx_data_out_i : signed(6 downto 0);
+   signal arx_data_out_q : signed(6 downto 0);
 begin
 
    filter_inst : filter
@@ -65,30 +65,30 @@ entity filter is
       resetn : in std_logic;
       data_in_i : in signed(8 downto 0);
       data_in_q : in signed(8 downto 0);
-      data_out_i : out signed(4 downto 0);
-      data_out_q : out signed(4 downto 0)
+      data_out_i : out signed(6 downto 0);
+      data_out_q : out signed(6 downto 0)
    );
 end filter;
 
 architecture rtl of filter is
 
 
-   component lpf_5_9_signed_9_4_1_4_signed_5_1_sat_trunc
+   component lpf_7_9_signed_9_4_1_4_signed_7_1_sat_trunc
       port (
          clock : in std_logic;
          resetn : in std_logic;
          data_in : in signed(8 downto 0);
-         data_out : out signed(4 downto 0)
+         data_out : out signed(6 downto 0)
       );
    end component;
    
    signal arx_lpf_i_data_in : signed(8 downto 0);
-   signal arx_lpf_i_data_out : signed(4 downto 0);
+   signal arx_lpf_i_data_out : signed(6 downto 0);
    signal arx_lpf_q_data_in : signed(8 downto 0);
-   signal arx_lpf_q_data_out : signed(4 downto 0);
+   signal arx_lpf_q_data_out : signed(6 downto 0);
 begin
 
-   lpf_i : lpf_5_9_signed_9_4_1_4_signed_5_1_sat_trunc
+   lpf_i : lpf_7_9_signed_9_4_1_4_signed_7_1_sat_trunc
       port map (
          clock => clock,
          resetn => resetn,
@@ -96,7 +96,7 @@ begin
          data_out => arx_lpf_i_data_out
       );
    
-   lpf_q : lpf_5_9_signed_9_4_1_4_signed_5_1_sat_trunc
+   lpf_q : lpf_7_9_signed_9_4_1_4_signed_7_1_sat_trunc
       port map (
          clock => clock,
          resetn => resetn,
@@ -107,8 +107,8 @@ begin
    update : process (arx_lpf_i_data_out, arx_lpf_q_data_out, data_in_i, data_in_q)
    begin
       --initialize variables and outports
-      data_out_i <= to_signed(0, 5);
-      data_out_q <= to_signed(0, 5);
+      data_out_i <= to_signed(0, 7);
+      data_out_q <= to_signed(0, 7);
       --copy register values to local variables
       --read from component outports
       data_out_i <= arx_lpf_i_data_out;
@@ -122,23 +122,23 @@ begin
 end rtl;
 
 --
--- lpf_5_9_signed_9_4_1_4_signed_5_1_sat_trunc
+-- lpf_7_9_signed_9_4_1_4_signed_7_1_sat_trunc
 --
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use work.arx_numeric.all;
 
-entity lpf_5_9_signed_9_4_1_4_signed_5_1_sat_trunc is
+entity lpf_7_9_signed_9_4_1_4_signed_7_1_sat_trunc is
    port(
       clock : in std_logic;
       resetn : in std_logic;
       data_in : in signed(8 downto 0);
-      data_out : out signed(4 downto 0)
+      data_out : out signed(6 downto 0)
    );
-end lpf_5_9_signed_9_4_1_4_signed_5_1_sat_trunc;
+end lpf_7_9_signed_9_4_1_4_signed_7_1_sat_trunc;
 
-architecture rtl of lpf_5_9_signed_9_4_1_4_signed_5_1_sat_trunc is
+architecture rtl of lpf_7_9_signed_9_4_1_4_signed_7_1_sat_trunc is
    type arx_input_array_type is array (0 to 27) of signed(8 downto 0);
 
    constant arx_input_reset : arx_input_array_type := 
@@ -253,7 +253,7 @@ begin
       t0_1_3_4_5_7_8_9_11_14 := to_signed(0, 20);
       t0_1_3_4_5_7_8_9_11_12_13_14 := to_signed(0, 21);
       sum_scaled := to_signed(0, 21);
-      data_out <= to_signed(0, 5);
+      data_out <= to_signed(0, 7);
       --copy register values to local variables
       for i in 0 to 27 loop
          input(i) := arx_input_reg(i);
@@ -291,7 +291,7 @@ begin
       t0_1_3_4_5_7_8_9_11_14 := (arx_msb_extend(t0_1_3_4_5_7_8_9, 2) + arx_msb_extend(arx_lsb_extend(t11_14, 3), 1));
       t0_1_3_4_5_7_8_9_11_12_13_14 := (arx_msb_extend(t0_1_3_4_5_7_8_9_11_14, 1) + arx_msb_extend(t12_13, 1));
       sum_scaled := t0_1_3_4_5_7_8_9_11_12_13_14;
-      data_out <= arx_saturate(arx_truncate(sum_scaled, 11), 5);
+      data_out <= arx_saturate(arx_truncate(sum_scaled, 9), 5);
       input(0) := data_in;
       input(1) := arx_input_reg(0);
       input(2) := arx_input_reg(1);
