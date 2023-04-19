@@ -12,6 +12,7 @@ component top
  
 # Ports
  data_in : in T_IN
+ phase_corr : in T_PHASE
  data_out_i : out T_OUT
  data_out_q : out T_OUT
  
