@@ -2,7 +2,7 @@ component top
  PHASE_LENGTH : generic integer = 10
  
 # Datapath used in this component
- IO_WL : generic integer = 11
+ IO_WL : generic integer = 12
  IO_IWL : generic integer = 6
  
 # Generic types

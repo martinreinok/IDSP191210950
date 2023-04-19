@@ -24,9 +24,9 @@ bool mixer::init(void)
       vcd_file << "$scope module Arx $end\n";
       vcd_file << "$var wire 1 aaa clock $end\n";
       init_vcd_vector(vcd_file, 3, "aab", "top__i");
-      init_vcd_vector(vcd_file, 11, "aac", "data_in");
-      init_vcd_vector(vcd_file, 11, "aad", "data_out_i");
-      init_vcd_vector(vcd_file, 11, "aae", "data_out_q");
+      init_vcd_vector(vcd_file, 12, "aac", "data_in");
+      init_vcd_vector(vcd_file, 12, "aad", "data_out_i");
+      init_vcd_vector(vcd_file, 12, "aae", "data_out_q");
       vcd_file << "$upscope $end\n";
       vcd_file << "$enddefinitions $end\n\n";
    #endif
@@ -50,9 +50,9 @@ void mixer::reset(void)
 
 void mixer::run
    (
-      i32 data_in, // signed(11,6,Wrap,Trunc)
-      i32 &data_out_i, // signed(11,6,Wrap,Trunc)
-      i32 &data_out_q // signed(11,6,Wrap,Trunc)
+      i32 data_in, // signed(12,6,Wrap,Trunc)
+      i32 &data_out_i, // signed(12,6,Wrap,Trunc)
+      i32 &data_out_q // signed(12,6,Wrap,Trunc)
    )
 {
    /* declare and init variables */
@@ -75,43 +75,43 @@ void mixer::run
    /* update */
    switch(arx_reg__top__i) {
    case u32(0):
-      data_out_q = arx_wrap(arx_truncate((i32(0) * data_in), 5), 21);
-      data_out_i = arx_wrap(arx_truncate((i32(32) * data_in), 5), 21);
+      data_out_q = arx_wrap(arx_truncate((i32(0) * data_in), 6), 20);
+      data_out_i = arx_wrap(arx_truncate((i32(64) * data_in), 6), 20);
       top__i = u32(1);
       break;
    case u32(1):
-      data_out_q = arx_wrap(arx_truncate((i32(-22) * data_in), 5), 21);
-      data_out_i = arx_wrap(arx_truncate((i32(22) * data_in), 5), 21);
+      data_out_q = arx_wrap(arx_truncate((i32(-45) * data_in), 6), 20);
+      data_out_i = arx_wrap(arx_truncate((i32(45) * data_in), 6), 20);
       top__i = u32(2);
       break;
    case u32(2):
-      data_out_q = arx_wrap(arx_truncate((i32(-32) * data_in), 5), 21);
-      data_out_i = arx_wrap(arx_truncate((i32(0) * data_in), 5), 21);
+      data_out_q = arx_wrap(arx_truncate((i32(-64) * data_in), 6), 20);
+      data_out_i = arx_wrap(arx_truncate((i32(0) * data_in), 6), 20);
       top__i = u32(3);
       break;
    case u32(3):
-      data_out_q = arx_wrap(arx_truncate((i32(-22) * data_in), 5), 21);
-      data_out_i = arx_wrap(arx_truncate((i32(-22) * data_in), 5), 21);
+      data_out_q = arx_wrap(arx_truncate((i32(-45) * data_in), 6), 20);
+      data_out_i = arx_wrap(arx_truncate((i32(-45) * data_in), 6), 20);
       top__i = u32(4);
       break;
    case u32(4):
-      data_out_q = arx_wrap(arx_truncate((i32(0) * data_in), 5), 21);
-      data_out_i = arx_wrap(arx_truncate((i32(-32) * data_in), 5), 21);
+      data_out_q = arx_wrap(arx_truncate((i32(0) * data_in), 6), 20);
+      data_out_i = arx_wrap(arx_truncate((i32(-64) * data_in), 6), 20);
       top__i = u32(5);
       break;
    case u32(5):
-      data_out_q = arx_wrap(arx_truncate((i32(22) * data_in), 5), 21);
-      data_out_i = arx_wrap(arx_truncate((i32(-22) * data_in), 5), 21);
+      data_out_q = arx_wrap(arx_truncate((i32(45) * data_in), 6), 20);
+      data_out_i = arx_wrap(arx_truncate((i32(-45) * data_in), 6), 20);
       top__i = u32(6);
       break;
    case u32(6):
-      data_out_q = arx_wrap(arx_truncate((i32(32) * data_in), 5), 21);
-      data_out_i = arx_wrap(arx_truncate((i32(0) * data_in), 5), 21);
+      data_out_q = arx_wrap(arx_truncate((i32(64) * data_in), 6), 20);
+      data_out_i = arx_wrap(arx_truncate((i32(0) * data_in), 6), 20);
       top__i = u32(7);
       break;
    case u32(7):
-      data_out_q = arx_wrap(arx_truncate((i32(22) * data_in), 5), 21);
-      data_out_i = arx_wrap(arx_truncate((i32(22) * data_in), 5), 21);
+      data_out_q = arx_wrap(arx_truncate((i32(45) * data_in), 6), 20);
+      data_out_i = arx_wrap(arx_truncate((i32(45) * data_in), 6), 20);
       top__i = u32(0);
       break;
    default:
@@ -120,9 +120,9 @@ void mixer::run
    }
    #ifdef VCD_OUTPUT
       /* dump port values to VCD file */
-      output_vcd_vector(vcd_file, u32(data_in), 11, "aac");
-      output_vcd_vector(vcd_file, u32(data_out_i), 11, "aad");
-      output_vcd_vector(vcd_file, u32(data_out_q), 11, "aae");
+      output_vcd_vector(vcd_file, u32(data_in), 12, "aac");
+      output_vcd_vector(vcd_file, u32(data_out_i), 12, "aad");
+      output_vcd_vector(vcd_file, u32(data_out_q), 12, "aae");
       vcd_file << "\n#" << vcd_time_stamp << '\n';
       vcd_time_stamp += 500;
       vcd_file << '0' << "aaa\n\n";

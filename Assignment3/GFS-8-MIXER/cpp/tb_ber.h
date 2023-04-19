@@ -42,7 +42,7 @@
 #ifdef ARX_FILTER
   #include "filter.h"
 
-  #define FILTER_WORD_LENGTH  7
+  #define FILTER_WORD_LENGTH  8
   #define FILTER_IWORD_LENGTH 1
 
   #undef  OUTPUT_FOLDER

@@ -10,9 +10,9 @@ entity top_std is
    port(
       clock : in std_logic;
       resetn : in std_logic;
-      data_in : in std_logic_vector(10 downto 0);
-      data_out_i : out std_logic_vector(10 downto 0);
-      data_out_q : out std_logic_vector(10 downto 0)
+      data_in : in std_logic_vector(11 downto 0);
+      data_out_i : out std_logic_vector(11 downto 0);
+      data_out_q : out std_logic_vector(11 downto 0)
    );
 end top_std;
 
@@ -21,15 +21,15 @@ architecture rtl of top_std is
       port (
          clock : in std_logic;
          resetn : in std_logic;
-         data_in : in signed(10 downto 0);
-         data_out_i : out signed(10 downto 0);
-         data_out_q : out signed(10 downto 0)
+         data_in : in signed(11 downto 0);
+         data_out_i : out signed(11 downto 0);
+         data_out_q : out signed(11 downto 0)
       );
    end component;
 
-   signal arx_data_in : signed(10 downto 0);
-   signal arx_data_out_i : signed(10 downto 0);
-   signal arx_data_out_q : signed(10 downto 0);
+   signal arx_data_in : signed(11 downto 0);
+   signal arx_data_out_i : signed(11 downto 0);
+   signal arx_data_out_q : signed(11 downto 0);
 begin
 
    top_inst : top
@@ -58,9 +58,9 @@ entity top is
    port(
       clock : in std_logic;
       resetn : in std_logic;
-      data_in : in signed(10 downto 0);
-      data_out_i : out signed(10 downto 0);
-      data_out_q : out signed(10 downto 0)
+      data_in : in signed(11 downto 0);
+      data_out_i : out signed(11 downto 0);
+      data_out_q : out signed(11 downto 0)
    );
 end top;
 
@@ -96,44 +96,44 @@ begin
       variable i : unsigned(2 downto 0); -- reads=1, writes=9
    begin
       --initialize variables and outports
-      data_out_i <= to_signed(0, 11);
-      data_out_q <= to_signed(0, 11);
+      data_out_i <= to_signed(0, 12);
+      data_out_q <= to_signed(0, 12);
       --copy register values to local variables
       i := arx_i_reg;
       --read from component outports
       --update outputs and register values
       case arx_i_reg is
          when "000" =>
-            data_out_q <= arx_wrap(arx_truncate(("00000000000" * data_in), 5), 6);
-            data_out_i <= arx_wrap(arx_truncate(("00000100000" * data_in), 5), 6);
+            data_out_q <= arx_wrap(arx_truncate(("000000000000" * data_in), 6), 6);
+            data_out_i <= arx_wrap(arx_truncate(("000001000000" * data_in), 6), 6);
             i := "001";
          when "001" =>
-            data_out_q <= arx_wrap(arx_truncate(("11111101010" * data_in), 5), 6);
-            data_out_i <= arx_wrap(arx_truncate(("00000010110" * data_in), 5), 6);
+            data_out_q <= arx_wrap(arx_truncate(("111111010011" * data_in), 6), 6);
+            data_out_i <= arx_wrap(arx_truncate(("000000101101" * data_in), 6), 6);
             i := "010";
          when "010" =>
-            data_out_q <= arx_wrap(arx_truncate(("11111100000" * data_in), 5), 6);
-            data_out_i <= arx_wrap(arx_truncate(("00000000000" * data_in), 5), 6);
+            data_out_q <= arx_wrap(arx_truncate(("111111000000" * data_in), 6), 6);
+            data_out_i <= arx_wrap(arx_truncate(("000000000000" * data_in), 6), 6);
             i := "011";
          when "011" =>
-            data_out_q <= arx_wrap(arx_truncate(("11111101010" * data_in), 5), 6);
-            data_out_i <= arx_wrap(arx_truncate(("11111101010" * data_in), 5), 6);
+            data_out_q <= arx_wrap(arx_truncate(("111111010011" * data_in), 6), 6);
+            data_out_i <= arx_wrap(arx_truncate(("111111010011" * data_in), 6), 6);
             i := "100";
          when "100" =>
-            data_out_q <= arx_wrap(arx_truncate(("00000000000" * data_in), 5), 6);
-            data_out_i <= arx_wrap(arx_truncate(("11111100000" * data_in), 5), 6);
+            data_out_q <= arx_wrap(arx_truncate(("000000000000" * data_in), 6), 6);
+            data_out_i <= arx_wrap(arx_truncate(("111111000000" * data_in), 6), 6);
             i := "101";
          when "101" =>
-            data_out_q <= arx_wrap(arx_truncate(("00000010110" * data_in), 5), 6);
-            data_out_i <= arx_wrap(arx_truncate(("11111101010" * data_in), 5), 6);
+            data_out_q <= arx_wrap(arx_truncate(("000000101101" * data_in), 6), 6);
+            data_out_i <= arx_wrap(arx_truncate(("111111010011" * data_in), 6), 6);
             i := "110";
          when "110" =>
-            data_out_q <= arx_wrap(arx_truncate(("00000100000" * data_in), 5), 6);
-            data_out_i <= arx_wrap(arx_truncate(("00000000000" * data_in), 5), 6);
+            data_out_q <= arx_wrap(arx_truncate(("000001000000" * data_in), 6), 6);
+            data_out_i <= arx_wrap(arx_truncate(("000000000000" * data_in), 6), 6);
             i := "111";
          when "111" =>
-            data_out_q <= arx_wrap(arx_truncate(("00000010110" * data_in), 5), 6);
-            data_out_i <= arx_wrap(arx_truncate(("00000010110" * data_in), 5), 6);
+            data_out_q <= arx_wrap(arx_truncate(("000000101101" * data_in), 6), 6);
+            data_out_i <= arx_wrap(arx_truncate(("000000101101" * data_in), 6), 6);
             i := "000";
          when others =>
             i := "000";
