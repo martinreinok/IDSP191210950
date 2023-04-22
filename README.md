@@ -25,3 +25,11 @@ Implementation of Digital Signal Processing
 - Arx folder has TRA5.arx
 - Cpp folder has executable, sample output (int), tb_sec_TRA5.cpp, Makefile
 
+## Assignment 3 deliverables
+
+### GFS-8
+
+- Arx folder has mixer.arx & filter.arx
+- Cpp folder has executables, slicer output folder, tb_ber.h
+- Vhdl folder has synopsys log for the whole design, modified pk_gfsk.vhd
+
