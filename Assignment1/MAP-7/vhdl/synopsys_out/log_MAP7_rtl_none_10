@@ -1,0 +1,653 @@
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version R-2020.09-SP2 for linux64 - Dec 03, 2020 
+
+                    Copyright (c) 1988 - 2020 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+dc_shell> dc_shell> arx_numeric.vhd MAP7.vhd
+dc_shell> MAP7
+dc_shell> clock
+dc_shell> none
+dc_shell> 10
+dc_shell> MAP7_rtl_none_10
+dc_shell> n
+dc_shell> n
+dc_shell> rtl_none_10
+dc_shell> dc_shell> dc_shell> dc_shell> dc_shell> Running PRESTO HDLC
+Compiling Package Declaration ARX_NUMERIC
+Compiling Package Body ARX_NUMERIC
+Presto compilation completed successfully.
+Loading db file '/remote/labware/technology/UMC/UMCL18U250D2_2.4/design_compiler/umcl18u250t2_typ.db'
+Loading db file '/remote/labware/packages/synopsys/syn/R-2020.09-SP2/libraries/syn/dw_foundation.sldb'
+Running PRESTO HDLC
+Compiling Entity Declaration MAP7_STD
+Compiling Architecture RTL of MAP7_STD
+Compiling Entity Declaration MAP7
+Compiling Architecture RTL of MAP7
+Presto compilation completed successfully.
+dc_shell> dc_shell> dc_shell> dc_shell> Loading db file '/remote/labware/packages/synopsys/syn/R-2020.09-SP2/libraries/syn/gtech.db'
+Loading db file '/remote/labware/packages/synopsys/syn/R-2020.09-SP2/libraries/syn/standard.sldb'
+Warning: The library named umcl18u250t2_typ specifies a very small trip-point value (0). (TIM-163)
+Warning: The library named umcl18u250t2_typ specifies a very small trip-point value (0). (TIM-163)
+  Loading link library 'umcl18u250t2_typ'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+
+Statistics for case statements in always block at line 102 in file
+	'./MAP7.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           156            |    auto/auto     |
+|           185            |    auto/auto     |
+|           205            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine MAP7 line 81 in file
+		'./MAP7.vhd'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  arx_state_reg_reg  | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   arx_i1_reg_reg    | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   arx_o1_reg_reg    | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   arx_r1_reg_reg    | Flip-flop |  15   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   arx_r2_reg_reg    | Flip-flop |  15   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   arx_d1_reg_reg    | Flip-flop |   9   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   arx_d2_reg_reg    | Flip-flop |   9   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (MAP7)
+Elaborated 1 design.
+Current design is now 'MAP7'.
+1
+dc_shell> dc_shell> dc_shell> 1
+dc_shell> dc_shell> dc_shell> 1
+dc_shell> dc_shell> dc_shell> 1
+dc_shell> dc_shell> dc_shell> 1
+dc_shell> dc_shell> dc_shell> Current design is 'MAP7'.
+Error: Cannot rename design /home/s2981416/IDSP191210950/Assignment1/MAP-7/vhdl/MAP7.db:MAP7 over existing design /home/s2981416/IDSP191210950/Assignment1/MAP-7/vhdl/MAP7.db:MAP7. (UIMG-43)
+0
+dc_shell> dc_shell> dc_shell> dc_shell> FALSE
+dc_shell> dc_shell> dc_shell> Information: Checking out the license 'DesignWare'. (SEC-104)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | R-2020.09-DWBB_202009.2 |     *     |
+| Licensed DW Building Blocks        | R-2020.09-DWBB_202009.2 |     *     |
+============================================================================
+
+
+Information: There are 6 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'MAP7'
+Information: The register 'arx_d1_reg_reg[6]' is a constant and will be removed. (OPT-1206)
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Implementation Selection
+  ----------------------------------
+  Processing 'MAP7_DW01_add_0'
+  Processing 'MAP7_DW01_add_1'
+  Processing 'MAP7_DW01_add_2'
+  Processing 'MAP7_DW01_add_3'
+  Mapping 'MAP7_DW_mult_tc_0'
+  Mapping 'MAP7_DW_mult_tc_1'
+
+  Beginning Mapping Optimizations  (High effort)
+  -------------------------------
+  Mapping Optimization (Phase 1)
+Information: The register 'arx_d2_reg_reg[6]' is a constant and will be removed. (OPT-1206)
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01   19356.6      0.00       0.0       0.0                          
+    0:00:01   19356.6      0.00       0.0       0.0                          
+    0:00:01   19356.6      0.00       0.0       0.0                          
+    0:00:01   19356.6      0.00       0.0       0.0                          
+    0:00:01   19356.6      0.00       0.0       0.0                          
+    0:00:02   16978.0      0.00       0.0       0.0                          
+    0:00:02   16969.8      0.00       0.0       0.0                          
+    0:00:02   16957.6      0.00       0.0       0.0                          
+    0:00:02   16957.6      0.00       0.0       0.0                          
+    0:00:02   16957.6      0.00       0.0       0.0                          
+    0:00:02   16957.6      0.00       0.0       0.0                          
+    0:00:02   16957.6      0.00       0.0       0.0                          
+    0:00:02   16957.6      0.00       0.0       0.0                          
+    0:00:02   16957.6      0.00       0.0       0.0                          
+    0:00:02   16957.6      0.00       0.0       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:02   16957.6      0.00       0.0       0.0                          
+    0:00:02   16957.6      0.00       0.0       0.0                          
+    0:00:02   16957.6      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:02   16957.6      0.00       0.0       0.0                          
+    0:00:02   16957.6      0.00       0.0       0.0                          
+    0:00:02   16945.4      0.00       0.0       0.0                          
+    0:00:02   16937.3      0.00       0.0       0.0                          
+    0:00:02   16929.2      0.00       0.0       0.0                          
+    0:00:02   16929.2      0.00       0.0       0.0                          
+    0:00:02   16929.2      0.00       0.0       0.0                          
+    0:00:02   16929.2      0.00       0.0       0.0                          
+    0:00:02   16929.2      0.00       0.0       0.0                          
+    0:00:02   16929.2      0.00       0.0       0.0                          
+    0:00:02   16929.2      0.00       0.0       0.0                          
+    0:00:02   16929.2      0.00       0.0       0.0                          
+    0:00:02   16929.2      0.00       0.0       0.0                          
+    0:00:02   16628.3      0.00       0.0       0.0                          
+Loading db file '/remote/labware/technology/UMC/UMCL18U250D2_2.4/design_compiler/umcl18u250t2_typ.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+dc_shell> dc_shell> dc_shell>  
+****************************************
+check_design summary:
+Version:     R-2020.09-SP2
+Date:        Sat Apr 22 17:35:28 2023
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     12
+    Unconnected ports (LINT-28)                                    12
+
+Cells                                                               6
+    Nets connected to multiple pins on same cell (LINT-33)          6
+--------------------------------------------------------------------------------
+
+Warning: In design 'MAP7_DW01_add_1', port 'CI' is not connected to any nets. (LINT-28)
+Warning: In design 'MAP7_DW01_add_1', port 'SUM[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'MAP7_DW01_add_1', port 'SUM[4]' is not connected to any nets. (LINT-28)
+Warning: In design 'MAP7_DW01_add_1', port 'SUM[3]' is not connected to any nets. (LINT-28)
+Warning: In design 'MAP7_DW01_add_1', port 'SUM[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'MAP7_DW01_add_1', port 'SUM[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'MAP7_DW01_add_1', port 'SUM[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'MAP7_DW01_add_1', port 'CO' is not connected to any nets. (LINT-28)
+Warning: In design 'MAP7_DW_mult_tc_0', port 'a[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'MAP7_DW_mult_tc_0', port 'a[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'MAP7_DW_mult_tc_0', port 'product[15]' is not connected to any nets. (LINT-28)
+Warning: In design 'MAP7_DW_mult_tc_1', port 'product[15]' is not connected to any nets. (LINT-28)
+Warning: In design 'MAP7', the same net is connected to more than one pin on submodule 'mult_203'. (LINT-33)
+   Net 'm_in_l_0' is connected to pins 'a[7]', 'a[6]'', 'a[2]', 'a[1]'.
+Warning: In design 'MAP7', the same net is connected to more than one pin on submodule 'mult_203'. (LINT-33)
+   Net 'm2_in_l[5]' is connected to pins 'a[5]', 'a[4]''.
+Warning: In design 'MAP7', the same net is connected to more than one pin on submodule 'mult_203'. (LINT-33)
+   Net 'm2_in_l[3]' is connected to pins 'a[3]', 'a[0]''.
+Warning: In design 'MAP7', the same net is connected to more than one pin on submodule 'mult_202'. (LINT-33)
+   Net 'm_in_l_4' is connected to pins 'a[7]', 'a[4]'', 'a[3]'.
+Warning: In design 'MAP7', the same net is connected to more than one pin on submodule 'mult_202'. (LINT-33)
+   Net 'm_in_l_0' is connected to pins 'a[6]', 'a[0]''.
+Warning: In design 'MAP7', the same net is connected to more than one pin on submodule 'mult_202'. (LINT-33)
+   Net 'net1366' is connected to pins 'a[5]', 'a[2]''.
+1
+dc_shell> dc_shell> dc_shell> dc_shell> dc_shell> dc_shell> dc_shell> dc_shell> dc_shell> NMA-16 VHDL-286 UCN-4
+dc_shell> 1
+dc_shell> 1
+dc_shell> dc_shell> 1
+dc_shell> dc_shell> dc_shell> hier_rtl_none_10
+dc_shell> dc_shell> dc_shell> Writing vhdl file '/home/s2981416/IDSP191210950/Assignment1/MAP-7/vhdl/synopsys_out/MAP7_rtl_none_10_hier.vhd'.
+Warning: A dummy net 'n_1000' is created to connect open pin 'product(15)'. (VHDL-290)
+Warning: A dummy net 'n_1001' is created to connect open pin 'a(5)'. (VHDL-290)
+Warning: A dummy net 'n_1002' is created to connect open pin 'a(2)'. (VHDL-290)
+Warning: A dummy net 'n_1003' is created to connect open pin 'product(15)'. (VHDL-290)
+Warning: A dummy net 'n_1004' is created to connect open pin 'CI'. (VHDL-290)
+Warning: A dummy net 'n_1005' is created to connect open pin 'SUM(5)'. (VHDL-290)
+Warning: A dummy net 'n_1006' is created to connect open pin 'SUM(4)'. (VHDL-290)
+Warning: A dummy net 'n_1007' is created to connect open pin 'SUM(3)'. (VHDL-290)
+Warning: A dummy net 'n_1008' is created to connect open pin 'SUM(2)'. (VHDL-290)
+Warning: A dummy net 'n_1009' is created to connect open pin 'SUM(1)'. (VHDL-290)
+Warning: A dummy net 'n_1010' is created to connect open pin 'SUM(0)'. (VHDL-290)
+Warning: A dummy net 'n_1011' is created to connect open pin 'CO'. (VHDL-290)
+Warning: A dummy net 'n_1012' is created to connect open pin 'SUM(5)'. (VHDL-290)
+Warning: A dummy net 'n_1013' is created to connect open pin 'SUM(4)'. (VHDL-290)
+Warning: A dummy net 'n_1014' is created to connect open pin 'SUM(3)'. (VHDL-290)
+Warning: A dummy net 'n_1015' is created to connect open pin 'SUM(2)'. (VHDL-290)
+Warning: A dummy net 'n_1016' is created to connect open pin 'SUM(1)'. (VHDL-290)
+Warning: A dummy net 'n_1017' is created to connect open pin 'SUM(0)'. (VHDL-290)
+Warning: A dummy net 'n_1018' is created to connect open pin 'CO'. (VHDL-290)
+Warning: A dummy net 'n_1019' is created to connect open pin 'product(15)'. (VHDL-290)
+Warning: A dummy net 'n_1020' is created to connect open pin 'product(15)'. (VHDL-290)
+1
+dc_shell> dc_shell> dc_shell>  
+****************************************
+Report : hierarchy
+Design : MAP7
+Version: R-2020.09-SP2
+Date   : Sat Apr 22 17:35:28 2023
+****************************************
+
+Attributes:
+    r - licensed design
+
+MAP7
+    AND2D1                    umcl18u250t2_typ
+    AND3D1                    umcl18u250t2_typ
+    AO22D1                    umcl18u250t2_typ
+    AOI22D1                   umcl18u250t2_typ
+    DFERPQ1                   umcl18u250t2_typ
+    DFFRPQ1                   umcl18u250t2_typ
+    EXOR2D1                   umcl18u250t2_typ
+    INVD1                     umcl18u250t2_typ
+    MAP7_DW01_add_1
+        ADFULD1               umcl18u250t2_typ
+        EXOR3D1               umcl18u250t2_typ
+        OAI21D1               umcl18u250t2_typ
+        OAI21M20D1            umcl18u250t2_typ
+        OAI211D1              umcl18u250t2_typ
+    MAP7_DW_mult_tc_0                   r
+        ADFULD1               umcl18u250t2_typ
+        ADHALFDL              umcl18u250t2_typ
+        AND2D1                umcl18u250t2_typ
+        EXNOR2D1              umcl18u250t2_typ
+        EXOR3D1               umcl18u250t2_typ
+        INVD1                 umcl18u250t2_typ
+        NAN2D1                umcl18u250t2_typ
+        NOR2D1                umcl18u250t2_typ
+    MAP7_DW_mult_tc_1                   r
+        ADFULD1               umcl18u250t2_typ
+        ADHALFDL              umcl18u250t2_typ
+        AND2D1                umcl18u250t2_typ
+        AO21D1                umcl18u250t2_typ
+        EXNOR2D1              umcl18u250t2_typ
+        EXNOR3D1              umcl18u250t2_typ
+        EXOR2D1               umcl18u250t2_typ
+        INVD1                 umcl18u250t2_typ
+        NAN2D1                umcl18u250t2_typ
+        NOR2D1                umcl18u250t2_typ
+        NOR3D1                umcl18u250t2_typ
+        OAI21D1               umcl18u250t2_typ
+        OAI22D1               umcl18u250t2_typ
+        OR2D1                 umcl18u250t2_typ
+    NAN2D1                    umcl18u250t2_typ
+    NAN2M1D1                  umcl18u250t2_typ
+    NAN3D1                    umcl18u250t2_typ
+    NAN4M1D1                  umcl18u250t2_typ
+    NOR2D1                    umcl18u250t2_typ
+    NOR2M1D1                  umcl18u250t2_typ
+    NOR3D1                    umcl18u250t2_typ
+    OAI21D1                   umcl18u250t2_typ
+    OAI22M10D1                umcl18u250t2_typ
+    OR3D1                     umcl18u250t2_typ
+    TIELO                     umcl18u250t2_typ
+1
+dc_shell> Information: Updating graph... (UID-83)
+ 
+****************************************
+Report : reference
+Design : MAP7
+Version: R-2020.09-SP2
+Date   : Sat Apr 22 17:35:28 2023
+****************************************
+
+Attributes:
+    b - black box (unknown)
+   bo - allows boundary optimization
+    d - dont_touch
+   mo - map_only
+    h - hierarchical
+    n - noncombinational
+    r - removable
+    s - synthetic operator
+    u - contains unmapped logic
+
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+AND2D1             umcl18u250t2_typ
+                                 16.260000      17    276.420004  
+AND3D1             umcl18u250t2_typ
+                                 20.330000       1     20.330000  
+AO22D1             umcl18u250t2_typ
+                                 32.520000       8    260.160004  
+AOI22D1            umcl18u250t2_typ
+                                 24.389999      23    560.969986  
+DFERPQ1            umcl18u250t2_typ
+                                101.639999      32   3252.479980  n
+DFFRPQ1            umcl18u250t2_typ
+                                 81.309998      33   2683.229919  n
+EXOR2D1            umcl18u250t2_typ
+                                 28.459999       8    227.679993  
+INVD1              umcl18u250t2_typ
+                                  8.130000      36    292.680004  
+MAP7_DW01_add_1                 800.910019       1    800.910019  h
+MAP7_DW_mult_tc_0              3130.680090       1   3130.680090  h
+MAP7_DW_mult_tc_1              3537.170034       1   3537.170034  h
+NAN2D1             umcl18u250t2_typ
+                                 12.200000       6     73.199999  
+NAN2M1D1           umcl18u250t2_typ
+                                 16.260000       2     32.520000  
+NAN3D1             umcl18u250t2_typ
+                                 16.260000       8    130.080002  
+NAN4M1D1           umcl18u250t2_typ
+                                 24.389999       1     24.389999  
+NOR2D1             umcl18u250t2_typ
+                                 12.200000      24    292.799995  
+NOR2M1D1           umcl18u250t2_typ
+                                 16.260000       2     32.520000  
+NOR3D1             umcl18u250t2_typ
+                                 16.260000       1     16.260000  
+OAI21D1            umcl18u250t2_typ
+                                 20.330000      23    467.589998  
+OAI22M10D1         umcl18u250t2_typ
+                                 32.520000      15    487.800007  
+OR3D1              umcl18u250t2_typ
+                                 20.330000       1     20.330000  
+TIELO              umcl18u250t2_typ
+                                  8.130000       1      8.130000  
+-----------------------------------------------------------------------------
+Total 22 references                                 16628.330035
+
+****************************************
+Design: MAP7_DW01_add_1 
+****************************************
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+ADFULD1            umcl18u250t2_typ
+                                 65.050003       8    520.400024  r
+EXOR3D1            umcl18u250t2_typ
+                                 52.849998       1     52.849998  
+OAI21D1            umcl18u250t2_typ
+                                 20.330000       4     81.320000  
+OAI21M20D1         umcl18u250t2_typ
+                                 24.389999       5    121.949997  
+OAI211D1           umcl18u250t2_typ
+                                 24.389999       1     24.389999  
+-----------------------------------------------------------------------------
+Total 5 references                                    800.910019
+
+****************************************
+Design: MAP7_DW_mult_tc_0 
+****************************************
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+ADFULD1            umcl18u250t2_typ
+                                 65.050003      33   2146.650101  r
+ADHALFDL           umcl18u250t2_typ
+                                 40.660000       5    203.299999  r
+AND2D1             umcl18u250t2_typ
+                                 16.260000       1     16.260000  
+EXNOR2D1           umcl18u250t2_typ
+                                 28.459999       1     28.459999  
+EXOR3D1            umcl18u250t2_typ
+                                 52.849998       1     52.849998  
+INVD1              umcl18u250t2_typ
+                                  8.130000      12     97.560001  
+NAN2D1             umcl18u250t2_typ
+                                 12.200000      17    207.399997  
+NOR2D1             umcl18u250t2_typ
+                                 12.200000      31    378.199994  
+-----------------------------------------------------------------------------
+Total 8 references                                   3130.680090
+
+****************************************
+Design: MAP7_DW_mult_tc_1 
+****************************************
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+ADFULD1            umcl18u250t2_typ
+                                 65.050003      25   1626.250076  r
+ADHALFDL           umcl18u250t2_typ
+                                 40.660000       4    162.639999  r
+AND2D1             umcl18u250t2_typ
+                                 16.260000       1     16.260000  
+AO21D1             umcl18u250t2_typ
+                                 28.459999       1     28.459999  
+EXNOR2D1           umcl18u250t2_typ
+                                 28.459999       4    113.839996  
+EXNOR3D1           umcl18u250t2_typ
+                                 52.849998       1     52.849998  
+EXOR2D1            umcl18u250t2_typ
+                                 28.459999      30    853.799973  
+INVD1              umcl18u250t2_typ
+                                  8.130000      11     89.430001  
+NAN2D1             umcl18u250t2_typ
+                                 12.200000       5     60.999999  
+NOR2D1             umcl18u250t2_typ
+                                 12.200000      24    292.799995  
+NOR3D1             umcl18u250t2_typ
+                                 16.260000       2     32.520000  
+OAI21D1            umcl18u250t2_typ
+                                 20.330000       1     20.330000  
+OAI22D1            umcl18u250t2_typ
+                                 24.389999       7    170.729996  
+OR2D1              umcl18u250t2_typ
+                                 16.260000       1     16.260000  
+-----------------------------------------------------------------------------
+Total 14 references                                  3537.170034
+1
+dc_shell> dc_shell> dc_shell>  
+****************************************
+Report : resources
+Design : MAP7
+Version: R-2020.09-SP2
+Date   : Sat Apr 22 17:35:28 2023
+****************************************
+
+Resource Sharing Report for design MAP7 in file ./MAP7.vhd
+
+===============================================================================
+|          |              |            | Contained     |                      |
+| Resource | Module       | Parameters | Resources     | Contained Operations |
+===============================================================================
+| r393     | DW01_add     | width=8    |               | add_416_C159_rn      |
+|          |              |            |               | add_416_C164_rn      |
+|          |              |            |               | add_416_C169_rn      |
+|          |              |            |               | add_416_C174_rn      |
+|          |              |            |               | add_416_C179_rn      |
+|          |              |            |               | add_416_C182_rn      |
+| r394     | DW01_add     | width=8    |               | add_416_C161_rn      |
+|          |              |            |               | add_416_C166_rn      |
+|          |              |            |               | add_416_C171_rn      |
+|          |              |            |               | add_416_C176_rn      |
+| r408     | DW01_add     | width=15   |               | add_204              |
+| r410     | DW01_add     | width=8    |               | add_416_C204_rn      |
+| r1126    | DW_mult_tc   | a_width=8  |               | mult_202             |
+|          |              | b_width=8  |               |                      |
+| r1842    | DW_mult_tc   | a_width=8  |               | mult_203             |
+|          |              | b_width=8  |               |                      |
+===============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| mult_202           | DW_mult_tc       | apparch (area)     |                |
+|                    |                  | mult_arch: and     |                |
+| mult_203           | DW_mult_tc       | apparch (area)     |                |
+|                    |                  | mult_arch: benc_radix4              |
+| add_204            | DW01_add         | rpl                |                |
+===============================================================================
+
+1
+dc_shell> dc_shell> dc_shell> TRUE
+dc_shell> Warning: Design 'MAP7' inherited license information from design 'MAP7_DW_mult_tc_1'. (DDB-74)
+Information: Added key list 'DesignWare' to design 'MAP7'. (DDB-72)
+1
+dc_shell> dc_shell> dc_shell>  
+****************************************
+Report : reference
+Design : MAP7
+Version: R-2020.09-SP2
+Date   : Sat Apr 22 17:35:28 2023
+****************************************
+
+Attributes:
+    b - black box (unknown)
+   bo - allows boundary optimization
+    d - dont_touch
+   mo - map_only
+    h - hierarchical
+    n - noncombinational
+    r - removable
+    s - synthetic operator
+    u - contains unmapped logic
+
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+ADFULD1            umcl18u250t2_typ
+                                 65.050003      66   4293.300201  r
+ADHALFDL           umcl18u250t2_typ
+                                 40.660000       9    365.939999  r
+AND2D1             umcl18u250t2_typ
+                                 16.260000      19    308.940004  
+AND3D1             umcl18u250t2_typ
+                                 20.330000       1     20.330000  
+AO21D1             umcl18u250t2_typ
+                                 28.459999       1     28.459999  
+AO22D1             umcl18u250t2_typ
+                                 32.520000       8    260.160004  
+AOI22D1            umcl18u250t2_typ
+                                 24.389999      23    560.969986  
+DFERPQ1            umcl18u250t2_typ
+                                101.639999      32   3252.479980  n
+DFFRPQ1            umcl18u250t2_typ
+                                 81.309998      33   2683.229919  n
+EXNOR2D1           umcl18u250t2_typ
+                                 28.459999       5    142.299995  
+EXNOR3D1           umcl18u250t2_typ
+                                 52.849998       1     52.849998  
+EXOR2D1            umcl18u250t2_typ
+                                 28.459999      38   1081.479965  
+EXOR3D1            umcl18u250t2_typ
+                                 52.849998       2    105.699997  
+INVD1              umcl18u250t2_typ
+                                  8.130000      59    479.670007  
+NAN2D1             umcl18u250t2_typ
+                                 12.200000      28    341.599995  
+NAN2M1D1           umcl18u250t2_typ
+                                 16.260000       2     32.520000  
+NAN3D1             umcl18u250t2_typ
+                                 16.260000       8    130.080002  
+NAN4M1D1           umcl18u250t2_typ
+                                 24.389999       1     24.389999  
+NOR2D1             umcl18u250t2_typ
+                                 12.200000      79    963.799985  
+NOR2M1D1           umcl18u250t2_typ
+                                 16.260000       2     32.520000  
+NOR3D1             umcl18u250t2_typ
+                                 16.260000       3     48.780001  
+OAI21D1            umcl18u250t2_typ
+                                 20.330000      28    569.239998  
+OAI21M20D1         umcl18u250t2_typ
+                                 24.389999       5    121.949997  
+OAI22D1            umcl18u250t2_typ
+                                 24.389999       7    170.729996  
+OAI22M10D1         umcl18u250t2_typ
+                                 32.520000      15    487.800007  
+OAI211D1           umcl18u250t2_typ
+                                 24.389999       1     24.389999  
+OR2D1              umcl18u250t2_typ
+                                 16.260000       1     16.260000  
+OR3D1              umcl18u250t2_typ
+                                 20.330000       1     20.330000  
+TIELO              umcl18u250t2_typ
+                                  8.130000       1      8.130000  
+-----------------------------------------------------------------------------
+Total 29 references                                 16628.330035
+1
+dc_shell> dc_shell> Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : MAP7
+Version: R-2020.09-SP2
+Date   : Sat Apr 22 17:35:28 2023
+****************************************
+
+Operating Conditions: nom_pvt   Library: umcl18u250t2_typ
+Wire Load Model Mode: top
+
+  Startpoint: data_in(7) (input port clocked by clock)
+  Endpoint: arx_i1_reg_reg_7_
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  input external delay                     5.00       5.00 r
+  data_in(7) (in)                          0.00       5.00 r
+  arx_i1_reg_reg_7_/D (DFERPQ1)            0.00       5.00 r
+  data arrival time                                   5.00
+
+  clock clock (rise edge)                 10.00      10.00
+  clock network delay (ideal)              0.00      10.00
+  arx_i1_reg_reg_7_/CK (DFERPQ1)           0.00      10.00 r
+  library setup time                      -0.11       9.89
+  data required time                                  9.89
+  -----------------------------------------------------------
+  data required time                                  9.89
+  data arrival time                                  -5.00
+  -----------------------------------------------------------
+  slack (MET)                                         4.89
+
+
+1
+dc_shell> dc_shell> dc_shell> 1
+dc_shell> dc_shell> dc_shell> flat_rtl_none_10
+dc_shell> dc_shell> dc_shell> Writing vhdl file '/home/s2981416/IDSP191210950/Assignment1/MAP-7/vhdl/synopsys_out/MAP7_rtl_none_10_flat.vhd'.
+1
+dc_shell> dc_shell> dc_shell> Writing ddc file 'synopsys_out/MAP7_rtl_none_10_flat.ddc'.
+1
+dc_shell> dc_shell> dc_shell> dc_shell> Information: Annotated 'cell' delays are assumed to include load delay. (UID-282)
+Information: Writing timing information to file '/home/s2981416/IDSP191210950/Assignment1/MAP-7/vhdl/synopsys_out/MAP7_rtl_none_10_flat.sdf'. (WT-3)
+1
+dc_shell> 
+Memory usage for this session 152 Mbytes.
+Memory usage for this session including child processes 152 Mbytes.
+CPU usage for this session 5 seconds ( 0.00 hours ).
+Elapsed time for this session 6 seconds ( 0.00 hours ).
+
+Thank you...

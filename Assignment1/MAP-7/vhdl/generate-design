@@ -18,15 +18,12 @@
 # on the next.
 
 SOURCE_FILE_LIST="arx_numeric.vhd MAP7.vhd"
-SOURCE_FILE_LIST="arx_numeric.vhd MAP7_overlapped.vhd"
-# SOURCE_FILE_LIST="arx_numeric.vhd sec_nov.vhd"
+# SOURCE_FILE_LIST="arx_numeric.vhd MAP7_overlapped.vhd"
 
 # Declare here the top-level entity. This name should correspond to the
 # real entity.
 TOP_ENTITY="MAP7"
-TOP_ENTITY="MAP7_overlapped"
-# TOP_ENTITY="sec_df2_std"
-# TOP_ENTITY="sec_nov_std"
+# TOP_ENTITY="MAP7_overlapped"
 
 # Declare the top-level architecture. This does not need to correspond
 # to a read VHDL architecture name and is only used to give the
