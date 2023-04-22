@@ -1,5 +1,5 @@
-#ifndef _MAP1_OVERLAPPED_INCLUDED_
-#define _MAP1_OVERLAPPED_INCLUDED_
+#ifndef _MAP7_OVERLAPPED_INCLUDED_
+#define _MAP7_OVERLAPPED_INCLUDED_
 
 #include <arx_numeric.h>
 #include <arx_util.h>
@@ -10,7 +10,7 @@
 #include <fstream>
 #endif
 
-class MAP1_overlapped {
+class MAP7_overlapped {
 private:
 #ifdef VCD_OUTPUT
    std::ofstream vcd_file;
@@ -20,8 +20,8 @@ private:
    bool init(void);
    void exit(void);
 public:
-   MAP1_overlapped() { init(); }
-   ~MAP1_overlapped() { exit(); }
+   MAP7_overlapped() { init(); }
+   ~MAP7_overlapped() { exit(); }
    void reset(void);
    void run(
          i32 data_in, // signed(8,5,Wrap,Round)

@@ -11,16 +11,17 @@
 // -----------------------------------------------------------------------------
 
 
-#include "MAP1_overlapped.h"
+#include "MAP7.h"
 
 // -----------------------------------------------------------------------------
 // parameters
 // -----------------------------------------------------------------------------
 
-#define TOP_DESIGN MAP1_overlapped
+#define TOP_DESIGN MAP7
 
 #define WORD_LENGTH 8
 #define INT_WORD_LENGTH 5
-#define CLOCKS_PER_SAMPLE 4
+#define CLOCKS_PER_SAMPLE 7
 
 #include "tb_sec_generic.cpp"
+

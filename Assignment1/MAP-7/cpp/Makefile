@@ -29,7 +29,8 @@ LIBS  = -L$(LIB_PATH) -larxutil `itpp-config --libs`
 
 # source files
 # SOURCES = sec_par.cpp sec_ser.cpp
-SOURCES = MAP7.cpp
+# SOURCES = MAP7.cpp
+SOURCES = MAP7_overlapped.cpp
 
 # compiler
 CC = g++

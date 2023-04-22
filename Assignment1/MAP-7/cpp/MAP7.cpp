@@ -1,4 +1,4 @@
-#include "MAP1.h"
+#include "MAP7.h"
 
 enum T_state {T_state_cycle0, T_state_cycle1, T_state_cycle2, T_state_cycle3, T_state_cycle4, T_state_cycle5, T_state_cycle6};
 const i32 arx_reset__top__i1 = i32(0);
@@ -18,7 +18,7 @@ i32 top__d2, arx_reg__top__d2;
 T_state top__state, arx_reg__top__state;
 
 
-bool MAP1::init(void)
+bool MAP7::init(void)
 {
    #ifdef VCD_OUTPUT
       vcd_file.open("debug.vcd", std::ios::out);
@@ -54,14 +54,14 @@ bool MAP1::init(void)
    return true;
 }
 
-void MAP1::exit(void)
+void MAP7::exit(void)
 {
    #ifdef VCD_OUTPUT
       vcd_file.close();
    #endif
 }
 
-void MAP1::reset(void)
+void MAP7::reset(void)
 {
    top__i1 = arx_reset__top__i1;
    top__o1 = arx_reset__top__o1;
@@ -75,7 +75,7 @@ void MAP1::reset(void)
    #endif
 }
 
-void MAP1::run
+void MAP7::run
    (
       i32 data_in, // signed(8,5,Wrap,Round)
       i32 &data_out // signed(8,5,Wrap,Round)

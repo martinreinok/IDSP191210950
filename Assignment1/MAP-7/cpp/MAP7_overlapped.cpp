@@ -1,4 +1,4 @@
-#include "MAP1_overlapped.h"
+#include "MAP7_overlapped.h"
 
 enum T_state {T_state_cycle0, T_state_cycle1, T_state_cycle2, T_state_cycle3};
 const i32 arx_reset__top__i1 = i32(0);
@@ -22,7 +22,7 @@ i32 top__d2, arx_reg__top__d2;
 T_state top__state, arx_reg__top__state;
 
 
-bool MAP1_overlapped::init(void)
+bool MAP7_overlapped::init(void)
 {
    #ifdef VCD_OUTPUT
       vcd_file.open("debug.vcd", std::ios::out);
@@ -66,14 +66,14 @@ bool MAP1_overlapped::init(void)
    return true;
 }
 
-void MAP1_overlapped::exit(void)
+void MAP7_overlapped::exit(void)
 {
    #ifdef VCD_OUTPUT
       vcd_file.close();
    #endif
 }
 
-void MAP1_overlapped::reset(void)
+void MAP7_overlapped::reset(void)
 {
    top__i1 = arx_reset__top__i1;
    top__o1 = arx_reset__top__o1;
@@ -89,7 +89,7 @@ void MAP1_overlapped::reset(void)
    #endif
 }
 
-void MAP1_overlapped::run
+void MAP7_overlapped::run
    (
       i32 data_in, // signed(8,5,Wrap,Round)
       i32 &data1_out // signed(8,5,Wrap,Round)

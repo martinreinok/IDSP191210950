@@ -12,8 +12,8 @@
 
 
 # declare your sourcefiles here
-SOURCEFILES = MAP7.arx
-# SOURCEFILES = MAP7_overlapped.arx
+# SOURCEFILES = MAP7.arx
+SOURCEFILES = MAP7_overlapped.arx
 
 # paths
 VHDL_PATH = ../vhdl
