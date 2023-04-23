@@ -1,0 +1,118 @@
+component lpf
+  # Generic - settings
+  # - Datapath - input
+  IN_WL  : generic integer = 9
+  IN_IWL : generic integer = 4
+
+  # - Datapath - output
+  OUT_WL  : generic integer = 37
+  OUT_IWL : generic integer = 32
+
+  # Generic - types
+  T_IN  : generic type = signed(IN_WL,  IN_IWL)
+  T_OUT : generic type = signed(OUT_WL, OUT_IWL)
+
+  # Ports
+  data_in  : in  T_IN
+  data_out : out T_OUT
+
+type
+  # gradually increasing word lengths
+  T_1:  signed(IN_WL+1,  IN_IWL+1)
+  T_2:  signed(IN_WL+2,  IN_IWL+2)
+  T_3:  signed(IN_WL+3,  IN_IWL+3)
+  T_4:  signed(IN_WL+4,  IN_IWL+4)
+  T_5:  signed(IN_WL+5,  IN_IWL+5)
+  T_6:  signed(IN_WL+6,  IN_IWL+6)
+  T_7:  signed(IN_WL+7,  IN_IWL+7)
+  T_8:  signed(IN_WL+8,  IN_IWL+8)
+  T_9:  signed(IN_WL+9,  IN_IWL+9)
+  T_10: signed(IN_WL+10, IN_IWL+10)
+  T_11: signed(IN_WL+11, IN_IWL+11)
+  T_12: signed(IN_WL+12, IN_IWL+12)
+
+  # scaled-by-1024 version of T_12
+  T_out_full: signed(IN_WL+12, IN_IWL+2)
+  T_coefficient_array: signed(9, 9)
+
+
+register
+  # Input state
+  input : array[28] of T_IN = 0
+
+
+  # Array is symmetrical
+  coefficients : array[29] of T_coefficient_array = {-1, -2, 0, 4, 8, 8, 0, -16, -32, -32,  0, 64, 141, 206, 232, 206, 141, 64,  0, -32, -32, -16,  0,  8,  8,  4,  0, -2, -1}
+
+variable
+  filter_sum : T_out_full
+  sum_scaled : T_out_full
+
+begin
+
+  # Transposed filter implementation
+  filter_sum = data_in * coefficients[28]
+  for i in 0:27
+    filter_sum = filter_sum + input[i] * coefficients[27 - i]
+  end
+
+  # Wire output
+  sum_scaled = reinterpret(T_out_full, filter_sum)
+  data_out = convert(T_OUT, sum_scaled)
+
+  # Update input state
+  input[0] = data_in
+
+  # shift inputs
+  for i in 1:27
+    input[i] = input[i-1]
+  end
+end
+
+# -----------------------------------------------------------------------------
+# top: instantiate lpf twice, once for I and once for Q channel
+# -----------------------------------------------------------------------------
+
+component top
+  # Generic - settings
+  # - Datapath - input
+  IN_WL  : generic integer = 9
+  IN_IWL : generic integer = 4
+
+  # - Datapath - output
+  OUT_WL  : generic integer = 5
+  OUT_IWL : generic integer = 1
+
+    # Generic - types
+  T_IN  : generic type = signed(IN_WL,  IN_IWL)
+  T_OUT : generic type = signed(OUT_WL, OUT_IWL, sat, trunc)
+
+  # Ports
+  data_in_i:  in  T_IN
+  data_in_q:  in  T_IN
+  data_out_i: out T_OUT
+  data_out_q: out T_OUT
+
+generate
+  lpf_i: lpf
+    IN_WL   = IN_WL
+    IN_IWL  = IN_IWL
+    OUT_WL  = OUT_WL
+    OUT_IWL = OUT_IWL
+    T_IN    = T_IN
+    T_OUT   = T_OUT
+    data_in  => data_in_i
+    data_out => data_out_i
+
+  lpf_q: lpf
+    IN_WL   = IN_WL
+    IN_IWL  = IN_IWL
+    OUT_WL  = OUT_WL
+    OUT_IWL = OUT_IWL
+    T_IN    = T_IN
+    T_OUT   = T_OUT
+    data_in  => data_in_q
+    data_out => data_out_q
+begin
+
+end
